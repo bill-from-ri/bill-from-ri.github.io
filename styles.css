@@ -1,0 +1,39 @@
+* {
+    font-family: Helvetica;
+}
+
+.nav-bar {
+    margin: auto;
+}
+
+.side-bar {
+    float: left;
+}
+
+img {
+    max-width: 100%; /* Ensures the image scales down if it's too large */
+    height: auto;    /* Maintains aspect ratio */
+    /* border-radius: 50%; Optional: Makes it circular */
+}
+
+.headshot {
+    width: 250px;  /* Adjust size as needed */
+    border-radius: 0.25rem; /* Optional: Makes it circular */
+    object-fit: cover; 
+}
+
+.social-buttons {
+    display: flex;         /* Align buttons in a row */
+    gap: 10px;             /* Space between buttons */
+    justify-content: center;
+  }
+
+.social-icon {
+    width: 25px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    opacity: 0.8;          /* Dim slightly on hover */
+  }
