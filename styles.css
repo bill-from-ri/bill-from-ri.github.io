@@ -1,18 +1,95 @@
 * {
-    font-family: Helvetica;
+    font-family: Open Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    /* padding: 0; */
 }
 
+/* ========== NAV BAR ========== */
+
+/* General nav-bar styling */
 .nav-bar {
-    margin: auto;
+    overflow: hidden; /* Ensures the bar stays clean if content overflows */
+    width: 100%; /* Full-width bar across the top */
+    padding: 0; /* Remove extra padding */
+    margin: 0; /* Remove extra margin */
+    display: flex; /* Flex layout to align items */
+    justify-content: left; /* Center the links horizontally */
+    box-sizing: border-box;
+    border-bottom: 2px solid dimgray;
+  }
+
+  .nav-bar nav {
+    margin-left: 5cm;
+  }
+
+  /* Styling for the nav links */
+  .nav-bar nav a {
+    color: dimgray; /* White text for contrast */
+    text-decoration: none; /* Remove blue underline formatting */
+    display: inline-block; /* Ensures proper box behavior */
+    margin-top: 5mm;
+    margin-bottom: 5mm;
+    margin-right: 5mm;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+  }
+  
+  /* Hover effects for links */
+  .nav-bar nav a:hover {
+    color: DodgerBlue; /* Change text color to dark turquoise on hover */
+  }
+
+  .nav-bar .curr-page {
+    color: DodgerBlue;
+  }
+
+/* ========== a ========== */
+
+a {
+    color: dodgerblue;
+    text-decoration-style: dotted;
 }
+
+a:hover {
+    text-decoration-style: solid;
+  }
+
+/* ========== SIDE BAR ========== */
 
 .side-bar {
     float: left;
+    /* margin-left: 4mm; */
+    margin-right: 4mm;
+    /* background-color: lightgrey; */
+    text-align: center;
 }
+
+.side-bar-text {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.social-buttons {
+    display: flex;         /* Align buttons in a row */
+    gap: 15px;             /* Space between buttons */
+    justify-content: center;
+    /* margin-top: 6mm; */
+}
+
+.social-icon {
+    height: 25px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1); /* Slight zoom on hover */
+    opacity: 0.8;          /* Dim slightly on hover */
+}
+
+/* ========== IMAGES ========== */
 
 img {
     max-width: 100%; /* Ensures the image scales down if it's too large */
-    height: auto;    /* Maintains aspect ratio */
+    width: auto;    /* Maintains aspect ratio */
     /* border-radius: 50%; Optional: Makes it circular */
 }
 
@@ -22,18 +99,33 @@ img {
     object-fit: cover; 
 }
 
-.social-buttons {
-    display: flex;         /* Align buttons in a row */
-    gap: 10px;             /* Space between buttons */
-    justify-content: center;
-  }
+/* ========== DEFAULT TEXT ========== */
 
-.social-icon {
-    width: 25px;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+.main {
+    margin-top: 1cm;
+    margin-left: 5cm;
+    margin-right: 5cm;
+    justify-content: center;
 }
 
-.social-icon:hover {
-    transform: scale(1.1); /* Slight zoom on hover */
-    opacity: 0.8;          /* Dim slightly on hover */
-  }
+.standard {
+    margin-top: 5mm;
+    margin-bottom: 5mm;
+}
+
+.norm-text {
+    color: dimgray;
+    margin: 1em;
+}
+
+.news-list {
+    padding-left: 5mm;
+}
+
+.norm-bold {
+    color: black;
+}
+
+/* ========== HEADINGS ========== */
+
+
