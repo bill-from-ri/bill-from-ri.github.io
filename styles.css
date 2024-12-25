@@ -1,7 +1,7 @@
 * {
     font-family: Open Verdana, Geneva, Tahoma, sans-serif;
+    /* font-family: Trebuchet MS; */
     margin: 0;
-    /* padding: 0; */
 }
 
 /* ========== NAV BAR ========== */
@@ -63,9 +63,10 @@ a:hover {
 .side-bar {
     float: left;
     /* margin-left: 4mm; */
-    margin-right: 4mm;
+    margin-right: 1rem;
     /* background-color: lightgrey; */
     text-align: center;
+    margin-bottom: 1rem;
 }
 
 .side-bar-text {
@@ -88,6 +89,12 @@ a:hover {
 .social-icon:hover {
     transform: scale(1.1); /* Slight zoom on hover */
     opacity: 0.8;          /* Dim slightly on hover */
+}
+
+.email {
+    /* font-size: .75rem; */
+    font-family: 'Courier New', Courier, monospace;
+    /* color: dimgray; */
 }
 
 /* ========== IMAGES ========== */
@@ -124,14 +131,15 @@ img {
 
 .norm-text {
     color: dimgray;
-    margin: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .news-list {
     padding-left: 5mm;
 }
 
-.norm-bold {
+.norm-text b {
     color: black;
 }
 
@@ -148,7 +156,7 @@ img {
 
 .bibliography ol {
     margin-bottom: 1rem;
-    padding-left: 1rem;
+    padding-left: 0rem;
     list-style: none;
 }
 
@@ -159,7 +167,7 @@ img {
 }
 
 .bibliography li > div:first-child {
-    width: 80px;  /* or whatever width accommodates your longest journal tag */
+    width: 100px;  /* or whatever width accommodates your longest journal tag */
     text-align: right;
     flex-shrink: 0;  /* prevents shrinking */
 }
@@ -185,7 +193,7 @@ abbr.journal-tag {
 }
 
 .bib-body {
-    max-width: calc(80% - 80px);  /* subtracts the journal tag width */
+    max-width: calc(80% - 100px);  /* subtracts the journal tag width */
     padding-left: 2rem;
     position: relative;
 }
@@ -241,6 +249,36 @@ abbr.journal-tag {
     border-radius: .125rem;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     font-size: .81rem;
+}
+
+/* ========== PROJECTS ========== */
+
+.project {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.project p {
+    color: dimgray;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+/* ========== FOOTER ========== */
+
+.foot {
+    background-color: dimgrey;
+    color: white;
+    font-size: .75rem;
+
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+
+    text-align: center;
 }
 
 
