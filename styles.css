@@ -99,12 +99,6 @@ a:hover {
 
 /* ========== IMAGES ========== */
 
-img {
-    max-width: 100%; /* Ensures the image scales down if it's too large */
-    width: auto;    /* Maintains aspect ratio */
-    /* border-radius: 50%; Optional: Makes it circular */
-}
-
 .headshot {
     width: 250px;  /* Adjust size as needed */
     border-radius: 0.25rem; /* Optional: Makes it circular */
@@ -114,13 +108,14 @@ img {
 /* ========== DEFAULT TEXT ========== */
 
 .main {
-    margin-top: 1cm;
+    margin-top: 2rem;
     max-width: 1000px;
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
+    padding-bottom: 1rem;
     justify-content: center;
 }
 
@@ -175,7 +170,7 @@ img {
 abbr.journal-tag {
     display: inline-block;
     color: white;
-    background-color: dodgerblue;
+    background-color: dimgrey;
     padding-left: 1rem;
     padding-right: 1rem;
 
@@ -190,6 +185,18 @@ abbr.journal-tag {
     color: #fff !important;
     border-radius: .125rem;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+abbr.submitted {
+    background-color: goldenrod;
+}
+
+abbr.novel {
+    background-color: forestgreen;
+}
+
+abbr.short-story {
+    background-color: darkorchid;
 }
 
 .bib-body {
@@ -226,11 +233,12 @@ abbr.journal-tag {
     font-style: italic;
 }
 
-.bib-body div.links {
+div.links {
     margin-top: .5rem;
+    margin-bottom: 1rem;
 }
 
-.bib-body div.links a {
+div.links a {
     color: dimgray;
     border: 1px solid dimgray;
     padding-left: 1rem;
@@ -262,6 +270,20 @@ abbr.journal-tag {
     color: dimgray;
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+.project img {
+    max-width: 500px;
+    /* margin-bottom: 1rem; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project h2 {
+    border-top: 1px solid dimgray;
+    padding-top: 1rem;
+    margin-top: 2rem;
 }
 
 
