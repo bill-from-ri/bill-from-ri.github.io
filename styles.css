@@ -192,6 +192,10 @@ abbr.submitted {
     background-color: goldenrod;
 }
 
+abbr.accepted {
+    background-color: dodgerblue;
+}
+
 abbr.novel {
     background-color: forestgreen;
 }
