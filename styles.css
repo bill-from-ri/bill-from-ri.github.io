@@ -188,12 +188,16 @@ abbr.journal-tag {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
-abbr.submitted {
-    background-color: goldenrod;
+abbr.paper {
+    background-color: forestgreen;
 }
 
-abbr.accepted {
-    background-color: dodgerblue;
+abbr.conference {
+    background-color: firebrick;
+}
+
+abbr.thesis {
+    background-color: steelblue;
 }
 
 abbr.novel {
