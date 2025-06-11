@@ -163,9 +163,9 @@ a:hover {
 }
 
 .bibliography li > div:first-child {
-    width: 100px;  /* or whatever width accommodates your longest journal tag */
+    width: 100px;
     text-align: right;
-    flex-shrink: 0;  /* prevents shrinking */
+    flex-shrink: 0;     /* prevents shrinking */
 }
 
 abbr.journal-tag {
@@ -240,6 +240,14 @@ abbr.short-story {
 .bib-body div.journal {
     color: dimgray;
     font-style: italic;
+}
+
+.bib-body img {
+    max-width: 500px;
+    /* margin-bottom: 1rem; */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 div.links {
