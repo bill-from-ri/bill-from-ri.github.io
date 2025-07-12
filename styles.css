@@ -8,7 +8,10 @@
 
 /* General nav-bar styling */
 .nav-bar {
-    overflow: hidden; /* Ensures the bar stays clean if content overflows */
+    /* Ensures the bar stays clean if content overflows */
+    /* Also prevents dropdown menus from appearing */
+    /* overflow: hidden; */
+
     width: 100%; /* Full-width bar across the top */
     padding: 0; /* Remove extra padding */
     margin: 0; /* Remove extra margin */
@@ -18,17 +21,17 @@
     border-bottom: 2px solid dimgray;
   }
 
-  .nav-bar nav {
+.nav-bar nav {
     /* margin-left: 5cm; */
     min-width: 1000px;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-  }
+}
 
-  /* Styling for the nav links */
-  .nav-bar nav a {
+/* Styling for the nav links */
+.nav-bar nav a {
     color: dimgray; /* White text for contrast */
     text-decoration: none; /* Remove blue underline formatting */
     display: inline-block; /* Ensures proper box behavior */
@@ -36,16 +39,85 @@
     margin-bottom: 5mm;
     margin-right: 5mm;
     transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
-  }
-  
-  /* Hover effects for links */
-  .nav-bar nav a:hover {
-    color: DodgerBlue; /* Change text color to dark turquoise on hover */
-  }
+}
 
-  .nav-bar .curr-page {
+/* Hover effects for links */
+.nav-bar nav a:hover {
+    color: DodgerBlue; /* Change text color to dark turquoise on hover */
+}
+
+.nav-bar .curr-page {
     color: DodgerBlue;
-  }
+}
+
+/* ========== DROPDOWN ========== */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background: none;
+  border: none;
+  color: dimgray;
+  font: inherit;
+  cursor: pointer;
+  margin-top: 5mm;
+  margin-bottom: 5mm;
+  margin-right: 5mm;
+  padding: 0;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 1rem; /* Match nav bar font size */
+}
+
+.dropbtn:hover {
+  color: DodgerBlue;
+}
+
+.dropdown-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.2s ease, transform 0.2s ease, max-height 0.2s ease;
+  
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 100%;
+  background-color: white;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  border: 1px solid #ddd;
+  z-index: 1;
+  padding: 0;
+  pointer-events: none; /* Prevent interaction when hidden */
+}
+
+/* Actual links inside dropdown */
+.dropdown-content a {
+  display: block;                  /* Stack vertically, occupy full width */
+  font-size: 0.9rem;               /* Slightly smaller text */
+  color: dimgray;
+  padding: 4px 10px;               /* Reduced vertical padding */
+  text-decoration: none;
+  white-space: nowrap;
+  width: 100%;                     /* Fill dropdown width */
+  box-sizing: border-box;          /* Prevent overflow from padding */
+  margin: 0 !important;            /* Remove all default margins */
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  color: DodgerBlue;
+}
+
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 200px; /* or however tall it needs to be */
+  pointer-events: auto;
+}
 
 /* ========== a ========== */
 
@@ -58,16 +130,63 @@ a:hover {
     text-decoration-style: solid;
   }
 
-/* ========== SIDE BAR ========== */
+/* ========= main ========= */
+.main {
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 15px 2rem 15px;
+  margin: 2rem auto 0 auto;
+  justify-content: center;
+}
 
+.homepage-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.standard {
+    margin-top: 5mm;
+    margin-bottom: 5mm;
+}
+
+/* Main bio and project section to the right of sidebar */
+.main-content {
+    flex: 1 1 calc(100% - 250px - 1rem);
+    min-width: 0;
+}
+
+/* Consistent styling */
+.main-content p,
+.news-section p {
+    color: dimgray;
+    /* margin-top: 1rem; */
+    margin-bottom: 1rem;
+}
+
+/* Responsive: stack vertically on small screens */
+@media screen and (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+    
+    .side-bar,
+    .main-content,
+    .news-section {
+        flex: 1 1 100%;
+        margin-right: 0;
+    }
+}
+
+/* ========== SIDE BAR ========== */
+/* Sidebar: fixed width */
 .side-bar {
-    float: left;
-    text-align: center;
-    /* margin-left: 4mm; */
+    flex: 0 0 250px;
     margin-right: 1rem;
     margin-top: 1rem;
-    margin-bottom: 1rem;
-    /* background-color: lightgrey; */
+    text-align: center;
 }
 
 .side-bar-text {
@@ -108,23 +227,6 @@ a:hover {
 
 /* ========== DEFAULT TEXT ========== */
 
-.main {
-    margin-top: 2rem;
-    max-width: 1000px;
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-bottom: 2rem;
-    justify-content: center;
-}
-
-.standard {
-    margin-top: 5mm;
-    margin-bottom: 5mm;
-}
-
 .norm-text {
     color: dimgray;
     margin-top: 1rem;
@@ -136,6 +238,11 @@ a:hover {
 }
 
 /* ========== NEWS ========== */
+/* News section spans full width below both columns */
+.news-section {
+    flex: 1 1 100%;
+    /* margin-top: 2rem; */
+}
 
 .news-list {
     padding-left: 5mm;

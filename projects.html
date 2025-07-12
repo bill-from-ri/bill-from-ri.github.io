@@ -8,11 +8,17 @@
 
 <div class="nav-bar">
 <nav>
-    <a href="index.html">Bill Xia</a>
-    <a href="docs/CVs/William Xia CV - June 10, 2025.pdf" target='_blank'>CV</a>
-    <a href="publications.html">Publications</a>
-    <a href="projects.html" class="curr-page">Projects</a>
-    <a href="personal.html">Personal</a>
+  <a href="index.html">Bill Xia</a>
+  <div class="dropdown">
+    <button class="dropbtn">Resume/CV</button>
+    <div class="dropdown-content">
+      <a href="docs/CVs/Resume 25_7_12.pdf" target='_blank'>Resume</a>
+      <a href="docs/CVs/William Xia CV - June 10, 2025.pdf" target="_blank">Full CV</a>
+    </div>
+  </div>
+  <a href="publications.html">Publications</a>
+  <a href="projects.html" class="curr-page">Projects</a>
+  <a href="personal.html">Personal</a>
 </nav>
 </div>
 
@@ -53,9 +59,10 @@
         The culmination of my two summer research internships at the National
         Library of Medicine (2023-2024). For this project, I annotated a text
         simplification dataset of over 1,200 sentence pairs, and developed a suite
-        of language models for identifying non-consumer biomedical terms in
-        research abstracts as well as generating explanations for those terms. These
-        models were fine-tuned from pre-trained versions of BERT and Llama-3.
+        of language models for identifying and simplifying non-consumer
+        biomedical terms in research abstracts as well as generating explanations
+        for those terms. For this project, I used a number of fine-tuned and
+        off-the-shelf open-source language models.
     </p>
     <p>
         I presented this work for National Institutes of Health Summer Intern
@@ -64,12 +71,15 @@
         <a href="https://bionlp.nlm.nih.gov/plaba2024/">PLABA</a>
         track at
         <a href="https://trec.nist.gov/pubs/call2024.html">TREC 2024</a>. I
-        also first-authored a paper about this project, which is currently
-        under review for publication at ACL 2025.
+        also first-authored a paper about this project, which I will present
+        at ACL 2025.
     </p>
     <div class="links">
-        <a href="docs/Xia NLM Poster.pdf" target="_blank" class="link-btn">Poster</a>
-        <a href="docs/Xia_TREC.pdf" target="_blank" class="link-btn">Slides</a>
+        <a class="link-btn" href="https://www.arxiv.org/abs/2506.12898">ArXiv</a>
+        <a class="link-btn" href="docs/JEBS Camera Ready.pdf" target='_blank'>PDF</a>
+        <a href="docs/ACL 2025_Find-3515_poster.pdf" target="_blank" class="link-btn">ACL Poster</a>
+        <!-- <a href="docs/Xia NLM Poster.pdf" target="_blank" class="link-btn">Poster 2</a> -->
+        <a href="docs/Xia_TREC.pdf" target="_blank" class="link-btn">TREC Slides</a>
     </div>
 </div>
 
@@ -144,7 +154,7 @@
 </div>
 
 <footer class="foot">
-    &copy William Xia. Last updated: 6/11/25. Hosted by GitHub Pages.
+    &copy William Xia. Last updated: 7/12/25. Hosted by GitHub Pages.
 </footer>
 
 </body>
