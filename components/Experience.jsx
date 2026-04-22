@@ -1,0 +1,202 @@
+// Experience — pinned scroll, like Maven
+function Experience() {
+  const items = [
+    {
+      date: "Oct 2025 — Present",
+      role: "Founding Applied AI Engineer",
+      org: "Maven Bio",
+      where: "Boston, MA",
+      body:
+        "Building AI agents for biopharma research workflows. Early team — wearing many hats across retrieval, evaluation, and frontend prototyping.",
+      visual: "maven",
+    },
+    {
+      date: "Jun — Sep 2025",
+      role: "AI Product Management Intern",
+      org: "Dassault Systèmes SolidWorks",
+      where: "Waltham, MA",
+      body:
+        "Shipped the RFL Agent — a locally-hosted AI platform that automates PM workflows end to end. Owned the UI, backend API, and testing framework.",
+      visual: "solidworks",
+    },
+    {
+      date: "May — Aug 2024 · 2023",
+      role: "Summer Research Intern",
+      org: "National Library of Medicine · NIH",
+      where: "Bethesda, MD",
+      body:
+        "Two summers on biomedical NLP. Developed JEBS — a fine-grained lexical simplification task — and presented at TREC 2024 and NIH Poster Day.",
+      visual: "nih",
+    },
+    {
+      date: "Sep 2021 — May 2025",
+      role: "BS Computer Science",
+      org: "Tufts University",
+      where: "Medford, MA",
+      body:
+        "Minors in English and Mathematics. Senior Honors Thesis on grounding LLMs with natural language world models. Cumulative GPA above average — thesis defended April 2025.",
+      visual: "tufts",
+    },
+  ];
+
+  const wrapRef = useRef(null);
+  const [activeIdx, setActiveIdx] = useState(0);
+  const [pinProgress, setPinProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const wrap = wrapRef.current;
+      if (!wrap) return;
+      const r = wrap.getBoundingClientRect();
+      const total = wrap.offsetHeight - window.innerHeight;
+      const scrolled = -r.top;
+      const p = Math.max(0, Math.min(1, scrolled / total));
+      setPinProgress(p);
+      const idx = Math.min(items.length - 1, Math.floor(p * items.length));
+      setActiveIdx(idx);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <section
+      className="xp"
+      id="experience"
+      data-screen-label="05 Experience"
+      ref={wrapRef}
+      style={{ height: `${items.length * 90}vh` }}
+    >
+      <div className="xp-sticky">
+        <div className="xp-head">
+          <div className="section-head">
+            <span className="section-num">04</span>
+            <span className="section-kicker">Experience</span>
+          </div>
+          <h2 className="section-title">
+            Places I've <em>worked</em>.
+          </h2>
+        </div>
+
+        <div className="xp-stage">
+          <div className="xp-rail">
+            {items.map((it, i) => (
+              <div key={i} className={"xp-rail-item " + (i === activeIdx ? "on" : "") + (i < activeIdx ? " past" : "")}>
+                <div className="xp-rail-dot" />
+                <div className="xp-rail-date">{it.date}</div>
+              </div>
+            ))}
+            <div className="xp-rail-line">
+              <div className="xp-rail-fill" style={{ height: (pinProgress * 100) + "%" }} />
+            </div>
+          </div>
+
+          <div className="xp-content">
+            {items.map((it, i) => (
+              <div key={i} className={"xp-slide " + (i === activeIdx ? "on" : "")}>
+                <div className="xp-text">
+                  <div className="xp-org-wrap">
+                    <span className="xp-counter">0{i + 1} / 0{items.length}</span>
+                    <span className="xp-where">{it.where}</span>
+                  </div>
+                  <h3 className="xp-role">{it.role}</h3>
+                  <div className="xp-org">{it.org}</div>
+                  <p className="xp-body">{it.body}</p>
+                </div>
+                <div className="xp-visual">
+                  <ExperienceVisual kind={it.visual} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="xp-progress" aria-hidden>
+          <div className="xp-progress-fill" style={{ width: (pinProgress * 100) + "%" }} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ExperienceVisual({ kind }) {
+  const common = { width: "100%", height: "100%", viewBox: "0 0 400 500", xmlns: "http://www.w3.org/2000/svg" };
+  if (kind === "maven") {
+    return (
+      <svg {...common}>
+        <defs>
+          <pattern id="mvstripe" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#2D4A3E" strokeWidth="1" opacity="0.12"/>
+          </pattern>
+        </defs>
+        <rect width="400" height="500" fill="#EAE4D6"/>
+        <rect width="400" height="500" fill="url(#mvstripe)"/>
+        <g transform="translate(200 250)">
+          <circle r="90" fill="none" stroke="#2D4A3E" strokeWidth="1.2" opacity="0.5"/>
+          <circle r="60" fill="none" stroke="#2D4A3E" strokeWidth="1.2" opacity="0.7"/>
+          <circle r="30" fill="#2D4A3E"/>
+          {[0,60,120,180,240,300].map(a => {
+            const rad = a * Math.PI / 180;
+            return <line key={a} x1={Math.cos(rad)*30} y1={Math.sin(rad)*30} x2={Math.cos(rad)*90} y2={Math.sin(rad)*90} stroke="#2D4A3E" strokeWidth="1"/>;
+          })}
+        </g>
+        <text x="30" y="470" fontFamily="ui-monospace,monospace" fontSize="10" fill="#2D4A3E">MAVEN BIO · AI FOR BIOPHARMA</text>
+      </svg>
+    );
+  }
+  if (kind === "solidworks") {
+    return (
+      <svg {...common}>
+        <rect width="400" height="500" fill="#E8E0D0"/>
+        <g fill="none" stroke="#7A4A2B" strokeWidth="1.2" transform="translate(200 250)">
+          <polygon points="-90,-70 90,-70 110,70 -110,70"/>
+          <polygon points="-90,-70 -110,70 -70,100 -50,-40"/>
+          <polygon points="90,-70 70,-40 50,100 110,70"/>
+          <line x1="-50" y1="-40" x2="50" y2="-40"/>
+          <line x1="-50" y1="-40" x2="-70" y2="100"/>
+          <line x1="50" y1="-40" x2="70" y2="100"/>
+        </g>
+        <text x="30" y="470" fontFamily="ui-monospace,monospace" fontSize="10" fill="#7A4A2B">SOLIDWORKS · PRODUCT MGMT</text>
+      </svg>
+    );
+  }
+  if (kind === "nih") {
+    return (
+      <svg {...common}>
+        <rect width="400" height="500" fill="#E6DFD0"/>
+        <g transform="translate(200 250)" fill="none" stroke="#2A3A6B" strokeWidth="1.3">
+          {Array.from({length:30}).map((_,i)=>{
+            const t = i/29;
+            const y = -120 + t*240;
+            const x1 = Math.sin(t*Math.PI*4) * 60;
+            const x2 = -x1;
+            return <g key={i}>
+              <line x1={x1} y1={y} x2={x2} y2={y} opacity={0.35+0.4*Math.abs(Math.sin(t*Math.PI*4))}/>
+            </g>;
+          })}
+        </g>
+        <text x="30" y="470" fontFamily="ui-monospace,monospace" fontSize="10" fill="#2A3A6B">NLM · NIH · BIOMEDICAL NLP</text>
+      </svg>
+    );
+  }
+  // tufts
+  return (
+    <svg {...common}>
+      <rect width="400" height="500" fill="#E9E1D1"/>
+      <g transform="translate(200 250)" fill="none" stroke="#5A3A7A" strokeWidth="1.2">
+        <rect x="-120" y="-40" width="240" height="120"/>
+        <polygon points="-140,-40 0,-120 140,-40"/>
+        <line x1="-120" y1="80" x2="120" y2="80"/>
+        <rect x="-20" y="20" width="40" height="60"/>
+        <line x1="-80" y1="-40" x2="-80" y2="80"/>
+        <line x1="-40" y1="-40" x2="-40" y2="80"/>
+        <line x1="40" y1="-40" x2="40" y2="80"/>
+        <line x1="80" y1="-40" x2="80" y2="80"/>
+      </g>
+      <text x="30" y="470" fontFamily="ui-monospace,monospace" fontSize="10" fill="#5A3A7A">TUFTS UNIVERSITY · BS CS</text>
+    </svg>
+  );
+}
+
+window.Experience = Experience;
