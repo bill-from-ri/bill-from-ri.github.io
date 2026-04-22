@@ -3,11 +3,12 @@ const { useState, useEffect, useRef } = React;
 
 function Hero() {
   const roles = [
-    "AI Engineer",
-    "NLP Researcher",
-    "Public Health Enthusiast",
+    "Founding AI Engineer",
+    "BioNLP Researcher",
+    "Life Sciences Communicator",
+    "Game Designer",
     "Rock Climber",
-    "Fantasy Writer",
+    "Fantasy Novelist",
     "Dungeon Master",
   ];
   const [roleIdx, setRoleIdx] = useState(0);
@@ -19,13 +20,13 @@ function Hero() {
     let timeout;
     if (phase === "typing") {
       if (text.length < current.length) {
-        timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), 55 + Math.random() * 40);
+        timeout = setTimeout(() => setText(current.slice(0, text.length + 1)), 64 + Math.random() * 32);
       } else {
-        timeout = setTimeout(() => setPhase("deleting"), 1600);
+        timeout = setTimeout(() => setPhase("deleting"), 3200);
       }
     } else if (phase === "deleting") {
       if (text.length > 0) {
-        timeout = setTimeout(() => setText(current.slice(0, text.length - 1)), 28);
+        timeout = setTimeout(() => setText(current.slice(0, text.length - 1)), 32);
       } else {
         setRoleIdx((i) => (i + 1) % roles.length);
         setPhase("typing");
@@ -39,7 +40,7 @@ function Hero() {
       <div className="hero-inner">
         <div className="hero-eyebrow">
           <span className="dot" />
-          <span>Available for collaboration · Based in Boston, MA</span>
+          <span>Est. 2003 · Based in Boston, MA</span>
         </div>
         <h1 className="hero-title">
           William <em>Xia</em>
@@ -53,8 +54,7 @@ function Hero() {
         </div>
         <p className="hero-blurb">
           Founding Applied AI Engineer at <a href="https://mavenbio.com/" target="_blank" rel="noreferrer">Maven Bio</a>.
-          Recent Tufts grad working on language models, biomedical NLP, and
-          the occasional novel.
+          Working on agentic AI systems, bioNLP, and short stories on the side.
         </p>
         <div className="hero-meta">
           <div className="meta-col">
@@ -66,8 +66,8 @@ function Hero() {
             <div className="meta-val">NIH · SolidWorks · Tufts</div>
           </div>
           <div className="meta-col">
-            <div className="meta-label">Writes about</div>
-            <div className="meta-val">LLMs, fiction, D&amp;D</div>
+            <div className="meta-label">After-Hours</div>
+            <div className="meta-val">Substack, short fiction, CK3</div>
           </div>
         </div>
       </div>

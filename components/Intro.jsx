@@ -1,18 +1,21 @@
-// Intro — full-screen curtain shown on first visit (2.4s, gated by sessionStorage in App)
+// Intro curtain — Maven-style wipe on first load
 function Intro() {
-  console.log('[Intro] function called (rendering) at', performance.now().toFixed(0), 'ms');
-  React.useEffect(() => {
-    console.log('[Intro] useEffect fired (mounted) at', performance.now().toFixed(0), 'ms');
-    return () => console.log('[Intro] unmounted at', performance.now().toFixed(0), 'ms');
+  const [phase, setPhase] = useState("in"); // in | out | done
+  useEffect(() => {
+    const t1 = setTimeout(() => setPhase("out"), 1400);
+    const t2 = setTimeout(() => setPhase("done"), 2400);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
+  if (phase === "done") return null;
   return (
-    <div className="intro-curtain" role="presentation" aria-hidden="true">
+    <div className={"intro-curtain " + phase}>
       <div className="intro-line">
-        <div className="intro-kicker">PORTFOLIO · 2026</div>
-        <h1 className="intro-title">William <em>Xia</em></h1>
+        <span className="intro-kicker mono">WILLIAM XIA · PORTFOLIO</span>
+        <span className="intro-title">
+          Building <em>AI agents</em> to accelerate <em>life sciences</em>
+        </span>
       </div>
     </div>
   );
 }
-
 window.Intro = Intro;
