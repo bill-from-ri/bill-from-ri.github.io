@@ -67,7 +67,7 @@ function Hero() {
           </div>
           <div className="meta-col">
             <div className="meta-label">After-Hours</div>
-            <div className="meta-val">Substack, short fiction, CK3</div>
+            <div className="meta-val">Climbing, short fiction, CK3</div>
           </div>
         </div>
       </div>

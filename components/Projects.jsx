@@ -7,10 +7,10 @@ function Projects() {
       date: "Jun–Sep 2025",
       org: "Dassault Systèmes SolidWorks",
       tag: "Agentic AI",
-      headline: "An AI agent that automates Product Management workflows.",
+      headline: "An agent that automates Product Management workflows.",
       body:
-        "Built end-to-end during my AI PM internship at SolidWorks: a locally-hosted agent that handles search-and-summarize, question-answering, and text summarization tasks across internal PM documentation. I owned the UI, backend API, and testing framework.",
-      chips: ["Python", "LangChain", "FastAPI", "React"],
+        "Built end-to-end during my AI PM internship at SolidWorks: a locally-hosted agent that handles search-and-summarize, question-answering, and text summarization tasks across internal PM documentation. Throughout my internship, I owned the UI, backend API, and testing framework.",
+      chips: ["LangChain", "FastAPI", "React", "Docker"],
       links: [{ label: "Slides", href: "docs/billxia.pdf" }],
       visual: "rfl",
       accent: "#2D4A3E",
@@ -20,12 +20,13 @@ function Projects() {
       label: "JEBS",
       date: "Jun 2023 – Jun 2025",
       org: "National Library of Medicine · NIH",
-      tag: "Published · ACL 2025",
+      tag: "BioNLP",
       headline: "A fine-grained biomedical lexical simplification task.",
       body:
-        "Annotated 1,200+ sentence pairs and developed a suite of language models that identify, simplify, and explain non-consumer biomedical terms in research abstracts. Presented at TREC 2024 and ACL 2025 in Vienna — first-authored paper published in the ACL Findings.",
-      chips: ["NLP", "Fine-tuning", "Annotation", "Evaluation"],
+        "Annotated 1,200+ sentence pairs and developed a suite of language models that identify, simplify, and explain non-consumer biomedical terms in research abstracts. Presented at TREC 2024 and ACL 2025 in Vienna. First-authored paper published in the ACL Findings.",
+      chips: ["NLP", "Fine-tuning", "Hugging Face", "PyTorch"],
       links: [
+        { label: "ACL Paper", href: "https://aclanthology.org/2025.findings-acl.907/" },
         { label: "ArXiv", href: "https://www.arxiv.org/abs/2506.12898" },
         { label: "ACL Poster", href: "docs/ACL 2025_Find-3515_poster.pdf" },
       ],
@@ -37,12 +38,15 @@ function Projects() {
       label: "World Models",
       date: "Sep 2024 – May 2025",
       org: "Senior Honors Thesis · Tufts",
-      tag: "Research",
+      tag: "Embodied AI",
       headline: "Grounding LLMs in embodied puzzle environments.",
       body:
-        "Built a novel OpenAI Gym environment for embodied puzzle solving and benchmarked LLMs against reinforcement learning agents. Results reveal a clear gap between what LLMs claim to know and what they actually understand — pointing toward future grounding work.",
-      chips: ["RL", "LLMs", "OpenAI Gym", "Evaluation"],
-      links: [{ label: "GitHub", href: "https://github.com/bill-from-ri/EscGridEnv_Public" }],
+        "Built a novel OpenAI Gym environment for embodied puzzle solving and benchmarked LLMs against reinforcement learning agents. Results reveal a clear gap between what LLMs claim to know and what they actually understand, pointing the way for future grounding work.",
+      chips: ["RL", "LangChain", "Ollama", "OpenAI Gym"],
+      links: [
+        { label: "GitHub", href: "https://github.com/bill-from-ri/EscGridEnv_Public" },
+        { label: "PDF", href: "docs/WorldModels.pdf" },
+      ],
       visual: "worldmodels",
       accent: "#2A3A6B",
     },
@@ -54,7 +58,7 @@ function Projects() {
       tag: "Side project",
       headline: "A customer-support chatbot backed by a knowledge graph.",
       body:
-        "Full-stack webapp built around a customer-support LLM chatbot with a Neo4j knowledge graph for retrieval-augmented generation. LangChain + Ollama on the model side, Flask backend, React frontend — shipped in a week as part of the SolidWorks interview process.",
+        "A full-stack webapp built around a customer-support LLM chatbot with a Neo4j knowledge graph for retrieval-augmented generation. LangChain + Ollama on the model side, Flask backend, React frontend. Implemented in 1 week as part of the SolidWorks interview process.",
       chips: ["Neo4j", "LangChain", "Flask", "React"],
       links: [
         { label: "GitHub", href: "https://github.com/bill-from-ri/KG_RAG" },
@@ -71,8 +75,8 @@ function Projects() {
       tag: "Game",
       headline: "A 2D puzzle game with slippery floors.",
       body:
-        "A single-player puzzle game I built with three classmates at Tufts. Navigate levels with slippery floors to collect potion ingredients — my first real shipped interactive project.",
-      chips: ["Unity", "C#", "Level Design"],
+        "A single-player puzzle game I built with three classmates at Tufts. Navigate levels with slippery floors to collect potion ingredients.",
+      chips: ["Unity", "C#"],
       links: [{ label: "itch.io", href: "https://alko08.itch.io/alchemists-dungeon" }],
       visual: "alchemist",
       accent: "#5A3A7A",
@@ -109,11 +113,10 @@ function Projects() {
         <span className="section-kicker">Projects</span>
       </div>
       <h2 className="section-title">
-        Selected <em>work</em>.
+        Selected <em>work</em>
       </h2>
       <p className="section-lede">
-        A handful of things I've built or researched. Scroll to flip through —
-        each card pins and stacks on top of the last.
+        A handful of programming projects I've worked on in the past. For a more comprehensive list of my projects, check out my <a href="#publications">Publications</a> and <a href="https://github.com/bill-from-ri">GitHub</a>.
       </p>
 
       <div className="proj-tabs" role="tablist">

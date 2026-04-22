@@ -20,7 +20,7 @@ function Experience() {
       visual: "solidworks",
     },
     {
-      date: "May — Aug 2024 · 2023",
+      date: "Jun 2023 — May 2025",
       role: "Summer Research Intern",
       org: "National Library of Medicine · NIH",
       where: "Bethesda, MD",
