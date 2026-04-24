@@ -2,6 +2,23 @@
 function Publications() {
   const pubs = [
     {
+      year: "2026",
+      items: [
+        {
+          tag: "JBI",
+          tagKind: "journal",
+          title: "Lessons from the TREC Plain Language Adaptation of Biomedical Abstracts (PLABA) track",
+          authors: ["Brian Ondov", "William Xia", "Kush Attal", "Ishita Unde", "Jerry He", "Dina Demner-Fushman"],
+          authorIdx: 1,
+          venue: "Journal of Biomedical Informatics, 2025",
+          links: [
+            { label: "JBI", href: "https://www.sciencedirect.com/science/article/pii/S1532046426000079" },
+            { label: "ArXiv", href: "https://www.arxiv.org/abs/2507.14096" },
+          ],
+        },
+      ]
+    },
+    {
       year: "2025",
       items: [
         {
@@ -18,18 +35,6 @@ function Publications() {
           ],
         },
         {
-          tag: "JBI",
-          tagKind: "journal",
-          title: "Lessons from the TREC Plain Language Adaptation of Biomedical Abstracts (PLABA) track",
-          authors: ["Brian Ondov", "William Xia", "Kush Attal", "Ishita Unde", "Jerry He", "Dina Demner-Fushman"],
-          authorIdx: 1,
-          venue: "Journal of Biomedical Informatics, 2025",
-          links: [
-            { label: "JBI", href: "https://www.sciencedirect.com/science/article/pii/S1532046426000079" },
-            { label: "ArXiv", href: "https://www.arxiv.org/abs/2507.14096" },
-          ],
-        },
-        {
           tag: "IEEE",
           tagKind: "journal",
           title: "Decoding Chess Puzzle Play and Standard Cognitive Tasks for BCI: A Low-Cost EEG Study",
@@ -37,6 +42,15 @@ function Publications() {
           authorIdx: 2,
           venue: "IEEE Transactions on Cognitive and Developmental Systems",
           links: [{ label: "ArXiv", href: "https://arxiv.org/abs/2505.07592" }],
+        },
+        {
+          tag: "Thesis",
+          tagKind: "thesis",
+          title: "Grounding Large Language Models with Natural Language World Models",
+          authors: ["William Xia"],
+          authorIdx: 0,
+          venue: "Senior Honors Thesis · Tufts Digital Library",
+          links: [{ label: "PDF", href: "docs/Senior Thesis.pdf" }],
         },
         {
           tag: "NAT",
@@ -50,15 +64,6 @@ function Publications() {
             { label: "PDF", href: "docs/NAT25_CHESS.docx.pdf" },
           ],
         },
-        {
-          tag: "Thesis",
-          tagKind: "thesis",
-          title: "Grounding Large Language Models with Natural Language World Models",
-          authors: ["William Xia"],
-          authorIdx: 0,
-          venue: "Senior Honors Thesis · Tufts Digital Library",
-          links: [{ label: "PDF", href: "docs/Senior Thesis.pdf" }],
-        },
       ],
     },
   ];
@@ -71,7 +76,7 @@ function Publications() {
       </div>
       <div className="pubs-top">
         <h2 className="section-title">
-          Papers I've <em>co-authored</em>.
+          Papers I've <em>published</em>
         </h2>
         <a className="ghost-link lg" href="https://scholar.google.com/citations?hl=en&user=KoY_mHQAAAAJ" target="_blank" rel="noreferrer">
           Google Scholar <span aria-hidden>→</span>

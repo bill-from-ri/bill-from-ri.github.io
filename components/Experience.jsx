@@ -7,7 +7,7 @@ function Experience() {
       org: "Maven Bio",
       where: "Boston, MA",
       body:
-        "Building AI agents for biopharma research workflows. Early team — wearing many hats across retrieval, evaluation, and frontend prototyping.",
+        "Building AI agents to accelerate biopharma business intelligence workflows. I contribute to our platform's main agent as well as various agentic automation processes within the site like our upcoming proactive monitoring system.",
       visual: "maven",
     },
     {
@@ -16,7 +16,7 @@ function Experience() {
       org: "Dassault Systèmes SolidWorks",
       where: "Waltham, MA",
       body:
-        "Shipped the RFL Agent — a locally-hosted AI platform that automates PM workflows end to end. Owned the UI, backend API, and testing framework.",
+        "Developed and deployed a full-stack, local LLM agent that interfaces with Dassault's internal web APIs; the agent improved access to analytics and documentation for 20+ SolidWorks project managers.",
       visual: "solidworks",
     },
     {
@@ -25,16 +25,27 @@ function Experience() {
       org: "National Library of Medicine · NIH",
       where: "Bethesda, MD",
       body:
-        "Two summers on biomedical NLP. Developed JEBS — a fine-grained lexical simplification task — and presented at TREC 2024 and NIH Poster Day.",
+        "Designed JEBS, a fine-grained lexical simplification task and dataset, presented at TREC 2024, NIH Poster Day, and ACL 2025. First-authored paper published in the ACL Findings. Advised by Dr. Dina Demner-Fushman.",
       visual: "nih",
+    },
+    {
+      date: "May - Dec 2022",
+      role: "Research Assistant",
+      org: "Tufts University HCI Lab",
+      where: "Medford, MA",
+      body:
+        "Conducted HCI research under Prof. Robert Jacob on differentiating mental workload states in users performing complex cognitive tasks (e.g. chess, n-back, mental rotation) using a MUSE EEG headset. Co-authored 2 papers during my time there.",
     },
     {
       date: "Sep 2021 — May 2025",
       role: "BS Computer Science",
       org: "Tufts University",
       where: "Medford, MA",
-      body:
-        "Minors in English and Mathematics. Senior Honors Thesis on grounding LLMs with natural language world models. Cumulative GPA above average — thesis defended April 2025.",
+      body: (
+        <>
+          Graduated <em>Summa cum laude</em> with minors in English and Mathematics. Spent 4 semesters working as a teaching assistant for CS 105: Programming Languages. Completed a senior honors thesis on grounding LLMs with natural language world models.
+        </>
+      ),
       visual: "tufts",
     },
   ];

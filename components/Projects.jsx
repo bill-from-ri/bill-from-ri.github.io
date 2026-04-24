@@ -9,7 +9,7 @@ function Projects() {
       tag: "Agentic AI",
       headline: "An agent that automates Product Management workflows.",
       body:
-        "Built end-to-end during my AI PM internship at SolidWorks: a locally-hosted agent that handles search-and-summarize, question-answering, and text summarization tasks across internal PM documentation. Throughout my internship, I owned the UI, backend API, and testing framework.",
+        "My main project while interning at SolidWorks: a locally-hosted agent that automates search-and-summarize, question-answering, and text summarization tasks across internal PM workflows. Throughout my internship, I owned the UI, backend API, and testing framework.",
       chips: ["LangChain", "FastAPI", "React", "Docker"],
       links: [{ label: "Slides", href: "docs/billxia.pdf" }],
       visual: "rfl",
@@ -23,7 +23,7 @@ function Projects() {
       tag: "BioNLP",
       headline: "A fine-grained biomedical lexical simplification task.",
       body:
-        "Annotated 1,200+ sentence pairs and developed a suite of language models that identify, simplify, and explain non-consumer biomedical terms in research abstracts. Presented at TREC 2024 and ACL 2025 in Vienna. First-authored paper published in the ACL Findings.",
+        "The culmination of my two summer research internships at the NLM. I annotated 1,200+ sentence pairs and developed a suite of language models that identify, simplify, and explain non-consumer biomedical terms in research abstracts. Presented at TREC 2024 and ACL 2025 in Vienna. First-authored paper published in the ACL Findings.",
       chips: ["NLP", "Fine-tuning", "Hugging Face", "PyTorch"],
       links: [
         { label: "ACL Paper", href: "https://aclanthology.org/2025.findings-acl.907/" },
@@ -41,7 +41,7 @@ function Projects() {
       tag: "Embodied AI",
       headline: "Grounding LLMs in embodied puzzle environments.",
       body:
-        "Built a novel OpenAI Gym environment for embodied puzzle solving and benchmarked LLMs against reinforcement learning agents. Results reveal a clear gap between what LLMs claim to know and what they actually understand, pointing the way for future grounding work.",
+        "For my thesis, I built a novel OpenAI Gym environment for embodied puzzle solving and benchmarked various LLMs grounding strategies against reinforcement learning agents. My results reveal a clear gap between what LLMs claim to know and what they actually understand, pointing the way for future grounding work.",
       chips: ["RL", "LangChain", "Ollama", "OpenAI Gym"],
       links: [
         { label: "GitHub", href: "https://github.com/bill-from-ri/EscGridEnv_Public" },
@@ -58,7 +58,7 @@ function Projects() {
       tag: "Side project",
       headline: "A customer-support chatbot backed by a knowledge graph.",
       body:
-        "A full-stack webapp built around a customer-support LLM chatbot with a Neo4j knowledge graph for retrieval-augmented generation. LangChain + Ollama on the model side, Flask backend, React frontend. Implemented in 1 week as part of the SolidWorks interview process.",
+        "A full-stack webapp built around an LLM-powered chatbot with a Neo4j knowledge graph for retrieval-augmented generation. LangChain and Ollama on the model side, Flask backend, React frontend. Implemented in 1 week as part of the SolidWorks interview process.",
       chips: ["Neo4j", "LangChain", "Flask", "React"],
       links: [
         { label: "GitHub", href: "https://github.com/bill-from-ri/KG_RAG" },
@@ -75,7 +75,7 @@ function Projects() {
       tag: "Game",
       headline: "A 2D puzzle game with slippery floors.",
       body:
-        "A single-player puzzle game I built with three classmates at Tufts. Navigate levels with slippery floors to collect potion ingredients.",
+        "A single-player puzzle game I built with three classmates at Tufts. Players must navigate levels with slippery floors to collect potion ingredients.",
       chips: ["Unity", "C#"],
       links: [{ label: "itch.io", href: "https://alko08.itch.io/alchemists-dungeon" }],
       visual: "alchemist",

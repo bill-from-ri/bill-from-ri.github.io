@@ -1,6 +1,19 @@
 // Writing — "Products I've shaped" style hero cards
 function Writing() {
-  const works = [
+  const works = [    
+    {
+      id: "zhusan",
+      kind: "Serialized Fiction",
+      year: "coming soon",
+      title: "The Zhusan Cycle",
+      genre: "Fantasy",
+      blurb: "A fantasy political drama set in a world inspired by 9th-century China.",
+      domain: "upcoming",
+      link: "#",
+      tintFrom: "#2A1F1A",
+      tintTo: "#5A3A2A",
+      hasCover: false,
+    },
     {
       id: "amf",
       kind: "Novel",
@@ -41,19 +54,6 @@ function Writing() {
       tintTo: "#7A4A3A",
       hasCover: false,
     },
-    {
-      id: "dnd",
-      kind: "Worldbuilding",
-      year: "ongoing",
-      title: "Dungeon Master's Journal",
-      genre: "Tabletop · D&D",
-      blurb: "Ongoing worldbuilding articles for the campaigns I run — lore, factions, maps, and the occasional tavern menu.",
-      domain: "upcoming",
-      link: "#",
-      tintFrom: "#2A1F1A",
-      tintTo: "#5A3A2A",
-      hasCover: false,
-    },
   ];
 
   return (
@@ -66,7 +66,7 @@ function Writing() {
         Stories I've <em>written</em>.
       </h2>
       <p className="section-lede">
-        Fiction is how I rest my brain between language-model experiments.
+        For the AI-free side of my brain.
       </p>
 
       <div className="writing-grid">

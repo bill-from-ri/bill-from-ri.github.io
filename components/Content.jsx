@@ -1,28 +1,28 @@
 // Content — Substack + YouTube featured cards
 function Content() {
   const substack = [
-    { title: "On grounding language models", date: "Coming soon", read: "8 min", kind: "Essay" },
-    { title: "Notes from ACL 2025", date: "Coming soon", read: "6 min", kind: "Field notes" },
-    { title: "What I learned shipping an agent", date: "Coming soon", read: "12 min", kind: "Retrospective" },
+    { title: "Epidemiology and the People's Health", date: "Coming soon", read: "10 min", kind: "Book Review" },
+    { title: "Breaking into the life sciences", date: "Coming soon", read: "10 min", kind: "Ideas & Advice" },
+    { title: "Welcome to my Substack!", date: "Coming soon", read: "3 min", kind: "Welcome" },
   ];
   const youtube = [
-    { title: "Building a local RAG agent, start to finish", date: "Coming soon", dur: "18:42", kind: "Tutorial" },
-    { title: "A D&D worldbuilding deep-dive", date: "Coming soon", dur: "24:10", kind: "Vlog" },
-    { title: "Reading my first novel aloud", date: "Coming soon", dur: "31:05", kind: "Reading" },
+    { title: "Building an isometric VTT", date: "Coming soon", dur: "15:00", kind: "Dev Diary" },
+    { title: "MapSlice: Game Engine Dev Diary", date: "Coming soon", dur: "15:00", kind: "Dev Diary" },
+    { title: "Welcome to my channel!", date: "Coming soon", dur: "3:00", kind: "Welcome" },
   ];
 
   return (
     <section className="content" id="content" data-screen-label="07 Content">
       <div className="section-head">
         <span className="section-num">06</span>
-        <span className="section-kicker">Content</span>
+        <span className="section-kicker">Content Creation</span>
       </div>
       <h2 className="section-title">
-        Things I <em>publish</em>.
+        My public <em>journal entries</em>.
       </h2>
       <p className="section-lede">
-        Slower, more personal writing lives on Substack. Longer walkthroughs
-        go on YouTube. Both are spinning up — more soon.
+        Substack is where I document my self-learning journey into the life sciences.
+        YouTube is where I share dev diaries and other personal project updates.
       </p>
 
       <div className="cc-block">

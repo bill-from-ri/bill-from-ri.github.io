@@ -2,9 +2,9 @@
 function About() {
   const telemetry = [
     { label: "Reading", value: "Pachinko", sub: "Min Jin Lee" },
-    { label: "Bouldering", value: "V3–V4", sub: "finding the beta" },
+    { label: "Bouldering", value: "V3-V4", sub: "CRG Alewife" },
     { label: "Listening", value: "Supernatural", sub: "Barns Courtney" },
-    { label: "Gaming", value: "Crusader Kings 3", sub: "ruining my sleep" },
+    { label: "Gaming", value: "Crusader Kings 3", sub: "Paradox Interactive" },
   ];
 
   return (
@@ -28,11 +28,10 @@ function About() {
               and minors in English and Mathematics.
             </p>
             <p>
-              My work is centered around natural language processing — text
-              simplification, information retrieval, and spatially-grounded agents. 
+              My work is centered around natural language processing — AI agents,
+              information retrieval, source grounding, and structured data extraction/synthesis. 
               I'm specifically interested in the application of language models
-              for life science domains such as biomedical literacy, epidemiology,
-              and drug discovery.
+              for life science domains such as epidemiology and drug development.
             </p>
             <p>
               When I'm not working on agents, I'm usually climbing,

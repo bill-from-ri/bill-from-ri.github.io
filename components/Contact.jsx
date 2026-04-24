@@ -12,11 +12,10 @@ function Contact() {
       <div className="contact-card">
         <div className="contact-eyebrow mono">07 · Contact</div>
         <h2 className="contact-title">
-          Let's <em>talk</em>.
+          Let's <em>meet up</em>
         </h2>
         <p className="contact-lede">
-          Open to research collaborations, thoughtful product work, climbing
-          partners, and D&amp;D one-shots. Drop a note — I read everything.
+          Open to coffee chats, bouldering sessions, and more.
         </p>
 
         <button className="contact-email" onClick={copy}>
