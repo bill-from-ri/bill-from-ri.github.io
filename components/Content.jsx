@@ -18,11 +18,10 @@ function Content() {
         <span className="section-kicker">Content Creation</span>
       </div>
       <h2 className="section-title">
-        My public <em>journal entries</em>.
+        My public <em>journal</em>
       </h2>
       <p className="section-lede">
-        Substack is where I document my self-learning journey into the life sciences.
-        YouTube is where I share dev diaries and other personal project updates.
+        Substack is where I document my self-learning journey into the life sciences. YouTube is where I share dev diaries and other project updates.
       </p>
 
       <div className="cc-block">
@@ -64,7 +63,7 @@ function Content() {
           <div className="cc-brand">
             <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden><rect x="2" y="5" width="20" height="14" rx="3" fill="currentColor"/><polygon points="10,9 16,12 10,15" fill="#F5F1EA"/></svg>
             <span className="cc-name">YouTube</span>
-            <span className="cc-handle mono">@billxia</span>
+            <span className="cc-handle mono">@bill-from-ri</span>
           </div>
           <a className="ghost-link" href="#" target="_blank" rel="noreferrer">Subscribe <span aria-hidden>→</span></a>
         </div>

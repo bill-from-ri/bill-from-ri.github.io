@@ -7,7 +7,7 @@ function Writing() {
       year: "coming soon",
       title: "The Zhusan Cycle",
       genre: "Fantasy",
-      blurb: "A fantasy political drama set in a world inspired by 9th-century China.",
+      blurb: "The headmaster of the Imperial Academy mentors the next generation of leaders to thwart Fate itself.",
       domain: "upcoming",
       link: "#",
       tintFrom: "#2A1F1A",
@@ -20,10 +20,11 @@ function Writing() {
       year: "2025",
       title: "A Merchant's Feud",
       genre: "Fantasy",
-      blurb: "The heir to a powerful shipping family must navigate a cutthroat political landscape to secure the fate of their house.",
+      blurb: "The heir to a powerful merchant's house must navigate the cutthroat politics of a Regency-era fantasy city.",
       domain: "amazon.com",
       link: "https://www.amazon.com/dp/B0FDH6NRFG",
       image: "assets/amf-cover.png",
+      imagePosition: "center bottom",
       tintFrom: "#2D3A30",
       tintTo: "#6B4A2B",
       hasCover: true,
@@ -34,12 +35,14 @@ function Writing() {
       year: "2024",
       title: "Children of Kronos",
       genre: "Science Fiction",
-      blurb: "A scientist on an alien planet must grapple with her responsibilities and morals while serving an authoritarian regime.",
+      blurb: "A scientist on an alien planet must grapple with her morals while serving an authoritarian regime.",
       domain: "pdf",
       link: "docs/Oil World 7.pdf",
+      image: "assets/kronos-cover.png",
+      imagePosition: "center top",
       tintFrom: "#1F2A3A",
       tintTo: "#3A5A7A",
-      hasCover: false,
+      hasCover: true,
     },
     {
       id: "shrimps",
@@ -50,9 +53,11 @@ function Writing() {
       blurb: "A college dropout's life is turned upside down when his roommate starts ordering hibachi to their apartment.",
       domain: "pdf",
       link: "docs/Hibachi 3.pdf",
+      image: "assets/shrimps-cover.png",
+      imagePosition: "center top",
       tintFrom: "#3A1F2A",
       tintTo: "#7A4A3A",
-      hasCover: false,
+      hasCover: true,
     },
   ];
 
@@ -75,7 +80,7 @@ function Writing() {
             <a className="wcard-link" href={w.link} target="_blank" rel="noreferrer">
               <div className="wcard-media">
                 {w.hasCover ? (
-                  <img src={w.image} alt={w.title} />
+                  <img src={w.image} alt={w.title} style={{ objectPosition: w.imagePosition }} />
                 ) : (
                   <div className="wcard-placeholder">
                     <svg className="stripes" viewBox="0 0 400 500" preserveAspectRatio="none">

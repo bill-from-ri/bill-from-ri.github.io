@@ -2,7 +2,7 @@
 function About() {
   const telemetry = [
     { label: "Reading", value: "Pachinko", sub: "Min Jin Lee" },
-    { label: "Bouldering", value: "V3-V4", sub: "CRG Alewife" },
+    { label: "Bouldering", value: "V4-V5", sub: "CRG North Station" },
     { label: "Listening", value: "Supernatural", sub: "Barns Courtney" },
     { label: "Gaming", value: "Crusader Kings 3", sub: "Paradox Interactive" },
   ];
@@ -29,7 +29,7 @@ function About() {
             </p>
             <p>
               My work is centered around natural language processing — AI agents,
-              information retrieval, source grounding, and structured data extraction/synthesis. 
+              information retrieval, source grounding, and structured data extraction. 
               I'm specifically interested in the application of language models
               for life science domains such as epidemiology and drug development.
             </p>

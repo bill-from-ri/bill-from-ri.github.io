@@ -19,11 +19,8 @@ function Header() {
   return (
     <header className={"site-header " + (shrunk ? "shrunk" : "")}>
       <a href="#top" className="brand">
-        <span className="brand-mark" aria-hidden>
-          <span className="bm-dot" />
-        </span>
         <span className="brand-name">
-          William <em>Xia</em>
+          William Xia
         </span>
       </a>
 
