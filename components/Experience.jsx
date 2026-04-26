@@ -13,7 +13,7 @@ function Experience() {
     {
       date: "Jun — Sep 2025",
       role: "AI Product Management Intern",
-      org: "Dassault Systèmes SolidWorks",
+      org: "Dassault Systèmes · SolidWorks",
       where: "Waltham, MA",
       body:
         "Developed and deployed a full-stack, local LLM agent that interfaces with Dassault's internal web APIs; the agent improved access to analytics and documentation for 20+ SolidWorks project managers.",
@@ -31,7 +31,7 @@ function Experience() {
     {
       date: "May - Dec 2022",
       role: "Research Assistant",
-      org: "Tufts University HCI Lab",
+      org: "Tufts University · HCI Lab",
       where: "Medford, MA",
       body:
         "Conducted research under Prof. Robert Jacob focused on differentiating mental workload states in people performing complex cognitive tasks (e.g. chess, n-back, mental rotation). Co-authored 2 papers based on my findings.",

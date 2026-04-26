@@ -1417,8 +1417,21 @@ section {
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .about-aside { position: static; }
   .telemetry-card { position: static; }
-  .hero-portrait { display: none; }
+  .hero { padding-top: 100px; }
+  .hero-portrait {
+    position: static;
+    width: 140px;
+    height: 140px;
+    margin: 0 0 32px;
+  }
   .proj-body { grid-template-columns: 1fr; gap: 32px; }
+  .projects .section-head,
+  .projects .section-title,
+  .projects .section-lede,
+  .proj-tabs { display: none; }
+  .proj-chips,
+  .proj-links,
+  .proj-visual { display: none; }
   .xp-stage { grid-template-columns: 1fr; }
   .xp-rail { display: none; }
   .xp-slide { grid-template-columns: 1fr; }

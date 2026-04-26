@@ -61,7 +61,7 @@ function Projects() {
       tag: "Knowledge Graphs",
       headline: "A customer-support chatbot backed by a knowledge graph.",
       body:
-        "A full-stack webapp built around an LLM-powered chatbot with a Neo4j knowledge graph for retrieval-augmented generation. LangChain and Ollama on the model side, Flask backend, React frontend. Implemented in 1 week as part of the SolidWorks interview process.",
+        "A full-stack webapp built around an LLM-powered chatbot with a Neo4j knowledge graph for retrieval-augmented generation. Implemented in 1 week as part of the SolidWorks interview process.",
       chips: ["Neo4j", "LangChain", "Flask", "React"],
       links: [
         { label: "GitHub", href: "https://github.com/bill-from-ri/KG_RAG" },
@@ -78,7 +78,7 @@ function Projects() {
       tag: "Game",
       headline: "A 2D puzzle game with slippery floors.",
       body:
-        "A single-player puzzle game I built with three classmates at Tufts. Players must navigate levels with slippery floors to collect potion ingredients.",
+        "A single-player puzzle game I built with three classmates at Tufts. Players must navigate ten rooms with slippery floors to collect various potion ingredients. Watch out for holes!",
       chips: ["Unity", "C#"],
       links: [{ label: "itch.io", href: "https://alko08.itch.io/alchemists-dungeon" }],
       visual: "alchemist",
