@@ -271,6 +271,11 @@ section {
   max-width: 640px;
   margin: 0 0 48px;
 }
+.section-lede a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+}
 
 /* ======================================================================
    HERO

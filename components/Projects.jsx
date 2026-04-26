@@ -45,7 +45,7 @@ function Projects() {
       chips: ["RL", "LangChain", "Ollama", "OpenAI Gym"],
       links: [
         { label: "GitHub", href: "https://github.com/bill-from-ri/EscGridEnv_Public" },
-        { label: "PDF", href: "docs/WorldModels.pdf" },
+        { label: "PDF", href: "docs/Senior Thesis.pdf" },
       ],
       visual: "worldmodels",
       accent: "#2A3A6B",
@@ -55,7 +55,7 @@ function Projects() {
       label: "KG-RAG Chatbot",
       date: "April 2025",
       org: "Full-stack interview project",
-      tag: "Side project",
+      tag: "Knowledge Graphs",
       headline: "A customer-support chatbot backed by a knowledge graph.",
       body:
         "A full-stack webapp built around an LLM-powered chatbot with a Neo4j knowledge graph for retrieval-augmented generation. LangChain and Ollama on the model side, Flask backend, React frontend. Implemented in 1 week as part of the SolidWorks interview process.",
@@ -116,7 +116,7 @@ function Projects() {
         Selected <em>work</em>
       </h2>
       <p className="section-lede">
-        A handful of programming projects I've worked on in the past. For a more comprehensive list of my projects, check out my <a href="#publications">Publications</a> and <a href="https://github.com/bill-from-ri">GitHub</a>.
+        A handful of programming projects I've worked on in the past. For a more comprehensive list of my projects, check out my <a href="https://github.com/bill-from-ri">GitHub</a>.
       </p>
 
       <div className="proj-tabs" role="tablist">
