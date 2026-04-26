@@ -513,14 +513,14 @@ section {
   overflow-x: auto;
   position: sticky;
   top: 64px;
-  background: color-mix(in oklab, var(--bg) 92%, transparent);
-  backdrop-filter: blur(10px);
-  z-index: 5;
+  background: var(--bg);
+  z-index: 10;
   padding-left: 0;
   margin-left: calc(var(--gutter) * -1);
   margin-right: calc(var(--gutter) * -1);
   padding-left: var(--gutter);
   padding-right: var(--gutter);
+  will-change: transform;
 }
 .proj-tab {
   flex: 1 1 0;
@@ -554,17 +554,19 @@ section {
 
 .proj-stack {
   position: relative;
+  padding-bottom: 70vh;  /* gives the final card stick time equal to its peers */
 }
 .proj-card {
   position: sticky;
   margin-bottom: 40px;
   min-height: 70vh;
+  scroll-margin-top: 130px;  /* matches the shared sticky top — keeps scrollIntoView aligned */
 }
 .proj-card-inner {
   background: var(--panel);
   border: 1px solid var(--rule);
   border-radius: 4px;
-  padding: 40px;
+  padding: 22px 40px 40px;
   box-shadow: var(--shadow-lg);
   position: relative;
   overflow: hidden;
@@ -579,8 +581,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 24px;
-  margin-bottom: 32px;
+  padding-bottom: 18px;
+  margin-bottom: 24px;
   border-bottom: 1px solid var(--rule);
   font-family: var(--mono);
   font-size: 10px;
@@ -680,6 +682,11 @@ section {
   position: relative;
 }
 .pv-svg { width: 100%; height: 100%; display: block; }
+.pv-photo {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  display: block;
+}
 .pv-img {
   width: 100%; height: 100%;
   background-size: cover; background-position: center;

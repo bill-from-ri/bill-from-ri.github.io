@@ -1,4 +1,7 @@
 // Projects — stacking scroll tabs, Maven-style
+const STACK_BASE = 130;   // CSS sticky `top` shared by every card
+const STACK_OFFSET = 44;  // visual stagger between stacked cards (transform)
+
 function Projects() {
   const projects = [
     {
@@ -84,22 +87,31 @@ function Projects() {
   ];
 
   const stackRef = useRef(null);
+  const tabsRef = useRef(null);
   const [active, setActive] = useState(0);
 
   useEffect(() => {
     const onScroll = () => {
       if (!stackRef.current) return;
       const cards = stackRef.current.querySelectorAll(".proj-card");
-      const viewportMid = window.innerHeight / 2;
-      let bestIdx = 0;
-      let bestDist = Infinity;
+
+      // Active = highest-index card whose top has reached its visual sticky position.
+      let activeIdx = 0;
       cards.forEach((el, i) => {
-        const r = el.getBoundingClientRect();
-        const mid = (r.top + r.bottom) / 2;
-        const d = Math.abs(mid - viewportMid);
-        if (d < bestDist) { bestDist = d; bestIdx = i; }
+        const stickyVisual = STACK_BASE + i * STACK_OFFSET;
+        if (el.getBoundingClientRect().top <= stickyVisual + 1) activeIdx = i;
       });
-      setActive(bestIdx);
+      setActive(activeIdx);
+
+      // Tabs follow the last card up as it releases, so the whole frame leaves together.
+      const tabsEl = tabsRef.current;
+      if (tabsEl && cards.length) {
+        const lastIdx = cards.length - 1;
+        const lastStickyVisual = STACK_BASE + lastIdx * STACK_OFFSET;
+        const lastTop = cards[lastIdx].getBoundingClientRect().top;
+        const overshoot = lastStickyVisual - lastTop;
+        tabsEl.style.transform = overshoot > 0 ? `translateY(${-overshoot}px)` : "";
+      }
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -119,14 +131,14 @@ function Projects() {
         A handful of programming projects I've worked on in the past. For a more comprehensive list of my projects, check out my <a href="https://github.com/bill-from-ri">GitHub</a>.
       </p>
 
-      <div className="proj-tabs" role="tablist">
+      <div className="proj-tabs" role="tablist" ref={tabsRef}>
         {projects.map((p, i) => (
           <button
             key={p.id}
             className={"proj-tab " + (i === active ? "on" : "")}
             onClick={() => {
               const el = document.getElementById("proj-" + p.id);
-              if (el) window.scrollTo({ top: el.offsetTop - 100, behavior: "smooth" });
+              if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
             }}
           >
             <span className="tn">0{i + 1}</span>
@@ -145,12 +157,18 @@ function Projects() {
 }
 
 function ProjectCard({ project, index, total }) {
-  const top = 100 + index * 14; // stack offset
+  // Same sticky top for every card so they release in lockstep; the visual
+  // stagger comes from the transform (which doesn't affect sticky math).
   return (
     <article
       className="proj-card"
       id={"proj-" + project.id}
-      style={{ top: top + "px", zIndex: index + 1, "--accent": project.accent }}
+      style={{
+        top: STACK_BASE + "px",
+        transform: `translateY(${index * STACK_OFFSET}px)`,
+        zIndex: index + 1,
+        "--accent": project.accent,
+      }}
     >
       <div className="proj-card-inner">
         <header className="proj-head">
@@ -190,6 +208,25 @@ function ProjectCard({ project, index, total }) {
 }
 
 function ProjectVisual({ kind, accent, label }) {
+  const images = {
+    rfl: "assets/projects/rfl.png",
+    jebs: "assets/projects/jebs.png",
+    worldmodels: "assets/projects/thesis.gif",
+    kgrag: "assets/projects/knowledge-graph.png",
+  };
+  const [imgFailed, setImgFailed] = useState(false);
+  const imgSrc = images[kind];
+  if (imgSrc && !imgFailed) {
+    return (
+      <img
+        className="pv-photo"
+        src={imgSrc}
+        alt={label}
+        onError={() => setImgFailed(true)}
+      />
+    );
+  }
+
   if (kind === "jebs") {
     return (
       <svg viewBox="0 0 400 300" className="pv-svg" xmlns="http://www.w3.org/2000/svg">
@@ -296,7 +333,7 @@ function ProjectVisual({ kind, accent, label }) {
   }
   // alchemist — show real img
   return (
-    <div className="pv-img" style={{ backgroundImage: "url(assets/alchemist-dungeon.png)" }}>
+    <div className="pv-img" style={{ backgroundImage: "url(assets/projects/alchemist-dungeon.png)" }}>
       <div className="pv-img-tint" />
     </div>
   );
