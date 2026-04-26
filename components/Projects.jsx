@@ -88,7 +88,7 @@ function Projects() {
 
   const stackRef = useRef(null);
   const tabsRef = useRef(null);
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(-1);
 
   useEffect(() => {
     const onScroll = () => {
@@ -96,7 +96,8 @@ function Projects() {
       const cards = stackRef.current.querySelectorAll(".proj-card");
 
       // Active = highest-index card whose top has reached its visual sticky position.
-      let activeIdx = 0;
+      // Stays -1 above the section so "click the tab you're already on" is honest.
+      let activeIdx = -1;
       cards.forEach((el, i) => {
         const stickyVisual = STACK_BASE + i * STACK_OFFSET;
         if (el.getBoundingClientRect().top <= stickyVisual + 1) activeIdx = i;
@@ -137,8 +138,23 @@ function Projects() {
             key={p.id}
             className={"proj-tab " + (i === active ? "on" : "")}
             onClick={() => {
-              const el = document.getElementById("proj-" + p.id);
-              if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+              const stack = stackRef.current;
+              if (!stack) return;
+              const cards = stack.querySelectorAll(".proj-card");
+              if (!cards.length) return;
+
+              // Sum offsetHeight of preceding cards (offsetHeight is layout-only,
+              // unlike el.offsetTop which can misreport on sticky+transformed nodes).
+              const interMargin = parseFloat(getComputedStyle(cards[0]).marginBottom) || 0;
+              const stackTop = stack.getBoundingClientRect().top + window.scrollY;
+              let naturalY = stackTop;
+              for (let j = 0; j < i; j++) {
+                naturalY += cards[j].offsetHeight + interMargin;
+              }
+              const target = naturalY - STACK_BASE;
+
+              if (Math.abs(window.scrollY - target) < 8) return;
+              window.scrollTo({ top: target, behavior: "smooth" });
             }}
           >
             <span className="tn">0{i + 1}</span>
