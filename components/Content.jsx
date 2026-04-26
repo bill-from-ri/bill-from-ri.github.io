@@ -2,7 +2,7 @@
 function Content() {
   const substack = [
     { title: "Epidemiology and the People's Health", date: "Coming soon", read: "10 min", kind: "Book Review" },
-    { title: "Breaking into the life sciences", date: "Coming soon", read: "10 min", kind: "Ideas & Advice" },
+    { title: "How I Use AI", date: "Coming soon", read: "10 min", kind: "Ideas" },
     { title: "Welcome to my Substack!", date: "Coming soon", read: "3 min", kind: "Welcome" },
   ];
   const youtube = [

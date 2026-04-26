@@ -68,7 +68,7 @@ function Writing() {
         <span className="section-kicker">Writing</span>
       </div>
       <h2 className="section-title">
-        Stories I've <em>written</em>.
+        Stories I've <em>written</em>
       </h2>
       <p className="section-lede">
         For the AI-free side of my brain.

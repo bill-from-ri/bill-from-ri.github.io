@@ -27,7 +27,7 @@ function Publications() {
           title: "JEBS: A Fine-grained Biomedical Lexical Simplification Task",
           authors: ["William Xia", "Ishita Unde", "Brian Ondov", "Dina Demner-Fushman"],
           authorIdx: 0,
-          venue: "Proceedings of the 63rd Annual Meeting of the ACL",
+          venue: "Proceedings of the 63rd Annual Meeting of the Association of Computational Linguistics",
           links: [
             { label: "ACL", href: "https://aclanthology.org/2025.findings-acl.907/" },
             { label: "ArXiv", href: "https://www.arxiv.org/abs/2506.12898" },
@@ -58,7 +58,7 @@ function Publications() {
           title: "Neural Correlates of Move Quality During Chess Games: A Low-Cost EEG Study",
           authors: ["Matthew Russell", "William Xia", "Samuel Youkeles", "Alexander Gu", "Robert J.K. Jacob"],
           authorIdx: 1,
-          venue: "Proc. Fourth Neuroadaptive Technologies Conference",
+          venue: "Proceedings of the 4th Neuroadaptive Technologies Conference",
           links: [
             { label: "NAT", href: "https://opus4.kobv.de/opus4-btu/frontdoor/index/index/docId/7215" },
             { label: "PDF", href: "docs/NAT25_CHESS.docx.pdf" },

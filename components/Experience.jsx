@@ -34,7 +34,8 @@ function Experience() {
       org: "Tufts University HCI Lab",
       where: "Medford, MA",
       body:
-        "Conducted HCI research under Prof. Robert Jacob on differentiating mental workload states in users performing complex cognitive tasks (e.g. chess, n-back, mental rotation) using a MUSE EEG headset. Co-authored 2 papers during my time there.",
+        "Conducted research under Prof. Robert Jacob focused on differentiating mental workload states in people performing complex cognitive tasks (e.g. chess, n-back, mental rotation). Co-authored 2 papers based on my findings.",
+      visual: "tufts_eng",
     },
     {
       date: "Sep 2021 — May 2025",
@@ -43,10 +44,10 @@ function Experience() {
       where: "Medford, MA",
       body: (
         <>
-          Graduated <em>Summa cum laude</em> with minors in English and Mathematics. Spent 4 semesters working as a teaching assistant for CS 105: Programming Languages. Completed a senior honors thesis on grounding LLMs with natural language world models.
+          Graduated <em>Summa cum laude</em> (GPA 3.81) with minors in English and Mathematics. Spent 4 semesters as a teaching assistant for CS 105: Programming Languages. Completed a senior honors thesis on embodied AI agents.
         </>
       ),
-      visual: "tufts",
+      visual: "tufts_uni",
     },
   ];
 
@@ -86,7 +87,7 @@ function Experience() {
             <span className="section-kicker">Experience</span>
           </div>
           <h2 className="section-title">
-            Places I've <em>worked</em>.
+            Places I've <em>worked</em>
           </h2>
         </div>
 
@@ -132,6 +133,26 @@ function Experience() {
 }
 
 function ExperienceVisual({ kind }) {
+  const logos = {
+    maven: { src: "assets/logos/maven.png", alt: "Maven Bio" },
+    solidworks: { src: "assets/logos/solidworks.png", alt: "Dassault Systèmes SolidWorks" },
+    nih: { src: "assets/logos/nlm.png", alt: "National Library of Medicine" },
+    tufts_eng: { src: "assets/logos/tufts-eng.png", alt: "Tufts University" },
+    tufts_uni: { src: "assets/logos/tufts-university.png", alt: "Tufts University" },
+  };
+  const [imgFailed, setImgFailed] = useState(false);
+  const logo = logos[kind];
+  if (logo && !imgFailed) {
+    return (
+      <img
+        className="xp-logo"
+        src={logo.src}
+        alt={logo.alt}
+        onError={() => setImgFailed(true)}
+      />
+    );
+  }
+
   const common = { width: "100%", height: "100%", viewBox: "0 0 400 500", xmlns: "http://www.w3.org/2000/svg" };
   if (kind === "maven") {
     return (
