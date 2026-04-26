@@ -1,140 +1,122 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/png" href="images/onion.png">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bill's Portfolio</title>
+<link rel="icon" type="image/png" href="assets/onion.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") {
+        document.documentElement.setAttribute("data-theme", t);
+      }
+    } catch (e) {}
+  })();
+</script>
 </head>
 <body>
+<div id="root"></div>
 
-<div class="nav-bar">
-<nav>
-  <a href="index.html" class="curr-page">Bill Xia</a>
-  <div class="dropdown">
-    <button class="dropbtn">Resume/CV</button>
-    <div class="dropdown-content">
-      <a href="docs/CVs/Resume 25_8_7.pdf" target='_blank'>Resume</a>
-      <a href="docs/CVs/William Xia CV - August 8, 2025" target="_blank">Full CV</a>
-    </div>
-  </div>
-  <a href="publications.html">Publications</a>
-  <a href="projects.html">Projects</a>
-  <a href="personal.html">Personal</a>
-</nav>
-</div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
-<div class="main">
-<div class="homepage-content">
-<div class="side-bar">
-    <img src="images/Bill Xia 2024.jpg" alt="Headshot" class="headshot">
-    <h1>William (Bill) Xia</h1>
-    <p class="side-bar-text">
-        Founding Applied AI Engineer <br>
-        Maven Bio
-    </p>
-    
-    <div class="social-buttons">
-        <a href="https://www.linkedin.com/in/william-xia-ab40b2218/">
-            <img src="images/In-Blue-128@2x.png" alt="[LinkedIn]" class="social-icon">
-        </a>
-        <a href="https://github.com/bill-from-ri">
-            <img src="images/github-mark.png" alt="[GitHub]" class="social-icon">
-        </a>
-        <a href="https://scholar.google.com/citations?hl=en&user=KoY_mHQAAAAJ">
-            <img src="images/google scholar.png" alt="[Google Scholar]" class="social-icon">
-        </a>
-    </div>
-    <p class="email">
-        bxia@mavenbio.io
-    </p>
-    
-</div>
+<script type="text/babel" src="components/Header.jsx"></script>
+<script type="text/babel" src="components/Intro.jsx"></script>
+<script type="text/babel" src="components/Hero.jsx"></script>
+<script type="text/babel" src="components/About.jsx"></script>
+<script type="text/babel" src="components/Projects.jsx"></script>
+<script type="text/babel" src="components/Publications.jsx"></script>
+<script type="text/babel" src="components/Experience.jsx"></script>
+<script type="text/babel" src="components/Writing.jsx"></script>
+<script type="text/babel" src="components/Content.jsx"></script>
+<script type="text/babel" src="components/Contact.jsx"></script>
 
-<div class="main-content">
-    <h3>Bio</h3>
-    <p class="norm-text">
-        Hello! My name is Bill, and I am a Founding Applied AI Engineer at
-        <a href="https://mavenbio.com/">Maven Bio</a>. I graduated from Tufts
-        University in May 2025 with a BS in Computer Science and minors in
-        English and Mathematics.
-    </p>
-    <p class="norm-text">
-        My past work mainly deals with natural language processing. Specifically,
-        I have worked on numerous projects centered around large language
-        models, with topics including biomedical text simplification,
-        information retrieval, and AI agents.
-    </p>
-    <p class="norm-text">
-        Before coming to Maven Bio, I was an AI Product Management Intern at
-        <a href="https://www.solidworks.com/">Dassault Systèmes SolidWorks</a>.
-        There, I developed an agentic AI platform to automate various Product
-        Management workflows.
-    </p>
+<script type="text/babel" data-presets="env,react">
+const { useState, useEffect } = React;
 
-    <h3>Recent Projects</h3>
-    <p class="norm-text">
-        <b>National Library of Medicine.</b> I was previously a Summer Research
-        Intern at the National Library of Medicine (NLM) at the National
-        Institutes of Health (NIH). As part of my internship, I developed
-        <a href="publications.html">JEBS</a>, a novel biomedical lexical
-        simplification task and dataset. I presented JEBS at ACL 2025 in Vienna,
-        Austria.
-    </p>
-    <p class="norm-text">
-        <b>Senior Capstone Project.</b> During my senior year of college, I worked on
-        a Senior Capstone Project. My team's client was
-        <a href="https://www.asldeafined.com/">ASLDeafined</a>, an American Sign
-        Language education website. We integrated an AI-powered, Duolingo-like
-        activity generation system into their website.
-    </p>
-</div>
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accent": "#2D4A3E",
+  "hero": "editorial",
+  "bg": "warm",
+  "intro": true
+}/*EDITMODE-END*/;
 
-<div class="news-section">
-    <h3>News</h3>
-    <div id="news-container">
-    <p class="norm-text news-list">
-        <b class="norm-bold">October 6, 2025.</b> I began my current posiiton
-        at Maven Bio.
-    </p>
-    <p class="norm-text news-list">
-        <b class="norm-bold">July 28, 2025.</b> I presented <i>JEBS</i> at ACL 2025.
-    </p>
-    <p class="norm-text news-list">
-        <b class="norm-bold">June 23, 2025.</b> I began my internship at
-        Dassault Systèmes SolidWorks.
-    </p>
-    <p class="norm-text news-list">
-        <b class="norm-bold">June 15, 2025.</b> My first novel, <i>A Merchant's
-            Feud</i>, was published on Amazon.
-    </p>
-    <p class="norm-text news-list">
-        <b class="norm-bold">May 16, 2025.</b> My paper, <i>JEBS: A Fine-grained
-        Biomedical Lexical Simplification Task</i>, was accepted to ACL 2025.
-    </p>
-    <p class="norm-text news-list">
-        <b class="norm-bold">May 9, 2025.</b> I submitted the manuscript for
-        my Senior Honors Thesis to <i>Tufts Digital Library</i>.
-    </p>
-    <p class="norm-text news-list">
-        <b class="norm-bold">April 25, 2025.</b> I defended my Senior Honors
-        Thesis: <i>Grounding Large Language Models with Natural Language World
-        Models</i>.
-    </p>
-    <p class="norm-text news-list">
-        <b class="norm-bold">November 20, 2024.</b> I co-presented the introduction to the PLABA Track
-        with Dr. Brian Ondov at TREC 2024.
-    </p>
-    </div>
+function App() {
+  const [settings, setSettings] = useState(TWEAK_DEFAULTS);
+  const [introDone, setIntroDone] = useState(!TWEAK_DEFAULTS.intro || sessionStorage.getItem("introShown"));
 
-    <!-- <button id="toggle-news">Show More</button>
-    <script src="news_expander.js"></script> -->
+  useEffect(() => {
+    document.documentElement.style.setProperty("--accent", settings.accent);
+    document.documentElement.style.setProperty(
+      "--accent-soft",
+      settings.accent === "#1a1a1a"
+        ? "rgba(26,26,26,0.08)"
+        : hexToSoft(settings.accent)
+    );
+    document.documentElement.setAttribute("data-bg", settings.bg);
+  }, [settings]);
 
-</div>
-</div>
-</div>
+  useEffect(() => {
+    if (settings.intro && !sessionStorage.getItem("introShown")) {
+      const t = setTimeout(() => {
+        sessionStorage.setItem("introShown", "1");
+        setIntroDone(true);
+      }, 2400);
+      return () => clearTimeout(t);
+    }
+  }, []);
 
-<footer class="foot">
-    &copy William Xia. Last updated: 1/23/26. Hosted by GitHub Pages.
-</footer>
+  useEffect(() => {
+    const onKey = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        const root = document.documentElement;
+        const current = root.getAttribute("data-theme");
+        const osDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const effective = current || (osDark ? "dark" : "light");
+        const next = effective === "dark" ? "light" : "dark";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("theme", next); } catch (err) {}
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
+  return (
+    <>
+      {settings.intro && !introDone && <Intro />}
+      <Header />
+      <main className="page">
+        <Hero />
+        <About />
+        <Projects />
+        <Publications />
+        <Experience />
+        <Writing />
+        <Content />
+        <Contact />
+      </main>
+    </>
+  );
+}
+
+function hexToSoft(hex) {
+  const m = hex.replace("#","");
+  const r = parseInt(m.slice(0,2),16), g = parseInt(m.slice(2,4),16), b = parseInt(m.slice(4,6),16);
+  return `rgba(${r},${g},${b},0.12)`;
+}
+
+setTimeout(() => {
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+}, 50);
+</script>
 </body>
 </html>
