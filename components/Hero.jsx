@@ -5,11 +5,9 @@ function Hero() {
   const roles = [
     "Founding AI Engineer",
     "BioNLP Researcher",
-    "Life Sciences Communicator",
     "Game Designer",
     "Rock Climber",
-    "Fantasy Novelist",
-    "Dungeon Master",
+    "Fantasy Writer",
   ];
   const [roleIdx, setRoleIdx] = useState(0);
   const [text, setText] = useState("");
@@ -37,6 +35,9 @@ function Hero() {
 
   return (
     <section className="hero" id="top">
+      <div className="hero-portrait" aria-hidden="true">
+        <img src="assets/headshot.jpg" alt="" />
+      </div>
       <div className="hero-inner">
         <div className="hero-eyebrow">
           <span className="dot" />

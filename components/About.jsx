@@ -40,29 +40,51 @@ function About() {
           </div>
         </div>
 
-        <aside className="telemetry-card" aria-label="Live telemetry">
-          <div className="telemetry-head">
-            <div className="telemetry-pulse" aria-hidden="true">
-              <span /><span /><span />
-            </div>
-            <div className="telemetry-title">Live Telemetry</div>
-            <div className="telemetry-status">ACTIVE</div>
-          </div>
-          <dl className="telemetry-list">
-            {telemetry.map((t, i) => (
-              <div className="telemetry-row" key={i}>
-                <dt>{t.label}</dt>
-                <dd>
-                  <span className="tv-main">{t.value}</span>
-                  <span className="tv-sub">{t.sub}</span>
-                </dd>
+        <div className="about-aside">
+          <aside className="telemetry-card" aria-label="Live telemetry">
+            <div className="telemetry-head">
+              <div className="telemetry-pulse" aria-hidden="true">
+                <span /><span /><span />
               </div>
-            ))}
-          </dl>
-          <div className="telemetry-foot">
-            <span className="mono">last sync · just now</span>
+              <div className="telemetry-title">Live Telemetry</div>
+              <div className="telemetry-status">ACTIVE</div>
+            </div>
+            <dl className="telemetry-list">
+              {telemetry.map((t, i) => (
+                <div className="telemetry-row" key={i}>
+                  <dt>{t.label}</dt>
+                  <dd>
+                    <span className="tv-main">{t.value}</span>
+                    <span className="tv-sub">{t.sub}</span>
+                  </dd>
+                </div>
+              ))}
+            </dl>
+            <div className="telemetry-foot">
+              <span className="mono">last sync · just now</span>
+            </div>
+          </aside>
+          <div className="doc-cta">
+            <a
+              className="doc-btn"
+              href="docs/CVs/Resume%2025_8_7.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="doc-btn-label">Resume</span>
+              <span className="doc-btn-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a
+              className="doc-btn"
+              href="docs/CVs/William%20Xia%20CV%20-%20August%208%2C%202025.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="doc-btn-label">CV</span>
+              <span className="doc-btn-arrow" aria-hidden="true">↗</span>
+            </a>
           </div>
-        </aside>
+        </div>
       </div>
     </section>
   );
