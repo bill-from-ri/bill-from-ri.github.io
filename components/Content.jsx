@@ -31,7 +31,7 @@ function Content() {
             <span className="cc-name">Substack</span>
             <span className="cc-handle mono">@billxia</span>
           </div>
-          <a className="ghost-link" href="#" target="_blank" rel="noreferrer">Subscribe <span aria-hidden>→</span></a>
+          <a className="ghost-link" href="https://billxia.substack.com/" target="_blank" rel="noreferrer">Subscribe <span aria-hidden>→</span></a>
         </div>
         <div className="cc-row">
           {substack.map((p, i) => (
@@ -65,7 +65,7 @@ function Content() {
             <span className="cc-name">YouTube</span>
             <span className="cc-handle mono">@bill-from-ri</span>
           </div>
-          <a className="ghost-link" href="#" target="_blank" rel="noreferrer">Subscribe <span aria-hidden>→</span></a>
+          <a className="ghost-link" href="https://www.youtube.com/@bill-from-ri" target="_blank" rel="noreferrer">Subscribe <span aria-hidden>→</span></a>
         </div>
         <div className="cc-row">
           {youtube.map((v, i) => (

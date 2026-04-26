@@ -25,7 +25,7 @@ function Experience() {
       org: "National Library of Medicine · NIH",
       where: "Bethesda, MD",
       body:
-        "Designed JEBS, a fine-grained lexical simplification task and dataset, presented at TREC 2024, NIH Poster Day, and ACL 2025. First-authored paper published in the ACL Findings. Advised by Dr. Dina Demner-Fushman.",
+        "Designed JEBS, a fine-grained lexical simplification task and dataset, presented at TREC 2024, NIH Poster Day, and ACL 2025. First-authored paper published in the ACL Findings. Advised by Dr. Dina Demner-Fushman and Dr. Brian Ondov.",
       visual: "nih",
     },
     {
