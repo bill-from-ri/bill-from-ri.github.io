@@ -1,5 +1,5 @@
 // Projects — stacking scroll tabs, Maven-style
-const STACK_BASE = 130;   // CSS sticky `top` shared by every card
+const STACK_BASE = 180;   // CSS sticky `top` shared by every card — sits below the sticky tabs (top:64 + ~76 tall) with a ~40px gap
 const STACK_OFFSET = 44;  // visual stagger between stacked cards (transform)
 
 function Projects() {
