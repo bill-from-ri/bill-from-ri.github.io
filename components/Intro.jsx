@@ -12,7 +12,7 @@ function Intro() {
       <div className="intro-line">
         <span className="intro-kicker mono">WILLIAM XIA · PORTFOLIO</span>
         <span className="intro-title">
-          Building <em>AI agents</em> to accelerate <em>life sciences</em>
+          Welcome!
         </span>
       </div>
     </div>

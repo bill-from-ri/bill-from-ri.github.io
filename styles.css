@@ -1209,10 +1209,11 @@ section {
 }
 .cc-card-embed:hover { transform: none; box-shadow: none; }
 .cc-card-embed iframe {
+  display: block;
   width: 100% !important;
-  border: 1px solid var(--rule) !important;
-  border-radius: 3px !important;
-  background: var(--panel);
+  border: 0 !important;
+  border-radius: 12px !important;
+  background: transparent;
 }
 
 /* ======================================================================

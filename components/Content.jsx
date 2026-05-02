@@ -1,8 +1,12 @@
 // Content — Substack featured cards
 function Content() {
   const substack = [
-    { title: "What is Epidemiology?", date: "Coming soon" },
-    { title: "Social Determinants of Health", date: "Coming soon" },
+    { title: "Epigenetics", date: "Coming soon" },
+    {
+      title: "Social Determinants of Health",
+      date: "May 2, 2026",
+      embed: "https://billxia.substack.com/p/the-social-determinants-of-health",
+    },
     {
       title: "What is Public Health?",
       date: "April 28, 2026",
@@ -10,16 +14,30 @@ function Content() {
     },
   ];
 
+  // Build the Substack iframe URL ourselves instead of using their embed.js,
+  // which has a stateful-regex bug that breaks every embed after the first.
+  const substackIframe = (embedUrl) => {
+    const u = new URL(embedUrl);
+    const slug = u.pathname.replace(/^\/p\//, "");
+    const frame = new URL(`${u.origin}/embed/p/${slug}`);
+    frame.searchParams.set("origin", window.location.origin);
+    frame.searchParams.set("fullURL", window.location.href);
+    return { src: frame.toString(), origin: u.origin };
+  };
+
+  // Substack's child frame posts its content height; mirror it onto the iframe
+  // so the embed grows to fit the post and doesn't show a scrollbar.
   React.useEffect(() => {
-    if (!substack.some((p) => p.embed)) return;
-    const script = document.createElement("script");
-    script.src = "https://substack.com/embedjs/embed.js";
-    script.async = true;
-    script.charSet = "utf-8";
-    document.body.appendChild(script);
-    return () => {
-      if (script.parentNode) script.parentNode.removeChild(script);
+    const onMessage = (event) => {
+      if (!event.data || !event.data.iframeHeight) return;
+      document.querySelectorAll("iframe.substack-iframe").forEach((iframe) => {
+        if (event.source === iframe.contentWindow) {
+          iframe.height = event.data.iframeHeight;
+        }
+      });
     };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
   }, []);
 
   // const youtube = [
@@ -47,11 +65,14 @@ function Content() {
           {substack.map((p, i) => (
             p.embed ? (
               <div key={i} className="cc-card cc-card-embed">
-                <div className="substack-post-embed">
-                  <p lang="en">{p.title} by Bill Xia</p>
-                  <p></p>
-                  <a data-post-link href={p.embed}>Read on Substack</a>
-                </div>
+                <iframe
+                  className="substack-iframe"
+                  src={substackIframe(p.embed).src}
+                  title={p.title}
+                  height="500"
+                  sandbox="allow-scripts allow-same-origin allow-top-navigation allow-popups"
+                  allow="clipboard-read clipboard-write allow-top-navigation allow-scripts allow-same-origin allow-popups"
+                />
               </div>
             ) : (
               <article key={i} className="cc-card cc-card-post">
