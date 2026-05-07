@@ -1,7 +1,11 @@
 // Content — Substack featured cards
 function Content() {
   const substack = [
-    { title: "Epigenetics", date: "Coming soon" },
+    {
+      title: "Epigenetics",
+      date: "Coming soon",
+      embed: "https://billxia.substack.com/p/epigenetics",
+    },
     {
       title: "Social Determinants of Health",
       date: "May 2, 2026",
