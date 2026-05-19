@@ -1,22 +1,39 @@
 // Content — Substack featured cards
 function Content() {
-  const substack = [
+  // Fallback used until posts.json loads (or if the fetch fails). A GitHub
+  // Action refreshes posts.json from the Substack RSS feed every few hours.
+  const fallback = [
+    {
+      title: "Public Health Policy",
+      date: "May 16, 2026",
+      embed: "https://billxia.substack.com/p/public-health-policy",
+    },
+    {
+      title: "Intro to Epidemiology",
+      date: "May 12, 2026",
+      embed: "https://billxia.substack.com/p/intro-to-epidemiology",
+    },
     {
       title: "Epigenetics",
-      date: "Coming soon",
+      date: "May 7, 2026",
       embed: "https://billxia.substack.com/p/epigenetics",
     },
-    {
-      title: "Social Determinants of Health",
-      date: "May 2, 2026",
-      embed: "https://billxia.substack.com/p/the-social-determinants-of-health",
-    },
-    {
-      title: "What is Public Health?",
-      date: "April 28, 2026",
-      embed: "https://billxia.substack.com/p/what-is-public-health",
-    },
   ];
+  const [substack, setSubstack] = React.useState(fallback);
+
+  React.useEffect(() => {
+    let cancelled = false;
+    fetch("posts.json", { cache: "no-cache" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (cancelled || !Array.isArray(data) || data.length === 0) return;
+        setSubstack(data);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   // Build the Substack iframe URL ourselves instead of using their embed.js,
   // which has a stateful-regex bug that breaks every embed after the first.
@@ -60,8 +77,7 @@ function Content() {
         Studying out <em>loud</em>
       </h2>
       <p className="section-lede">
-        I'm trying to learn more about epidemiology. I use Substack to document
-        my journey, posting articles as I go.
+        I'm trying to learn more about epidemiology.
         {/* YouTube is where I share dev diaries and other project updates. */}
       </p>
 

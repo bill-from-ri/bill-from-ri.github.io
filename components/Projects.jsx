@@ -1,6 +1,5 @@
 // Projects — stacking scroll tabs, Maven-style
 const STACK_BASE = 180;   // CSS sticky `top` shared by every card — sits below the sticky tabs (top:64 + ~76 tall) with a ~40px gap
-const STACK_OFFSET = 44;  // visual stagger between stacked cards (transform)
 
 function Projects() {
   const projects = [
@@ -95,22 +94,19 @@ function Projects() {
       if (!stackRef.current) return;
       const cards = stackRef.current.querySelectorAll(".proj-card");
 
-      // Active = highest-index card whose top has reached its visual sticky position.
+      // Active = highest-index card whose top has reached the shared sticky position.
       // Stays -1 above the section so "click the tab you're already on" is honest.
       let activeIdx = -1;
       cards.forEach((el, i) => {
-        const stickyVisual = STACK_BASE + i * STACK_OFFSET;
-        if (el.getBoundingClientRect().top <= stickyVisual + 1) activeIdx = i;
+        if (el.getBoundingClientRect().top <= STACK_BASE + 1) activeIdx = i;
       });
       setActive(activeIdx);
 
       // Tabs follow the last card up as it releases, so the whole frame leaves together.
       const tabsEl = tabsRef.current;
       if (tabsEl && cards.length) {
-        const lastIdx = cards.length - 1;
-        const lastStickyVisual = STACK_BASE + lastIdx * STACK_OFFSET;
-        const lastTop = cards[lastIdx].getBoundingClientRect().top;
-        const overshoot = lastStickyVisual - lastTop;
+        const lastTop = cards[cards.length - 1].getBoundingClientRect().top;
+        const overshoot = STACK_BASE - lastTop;
         tabsEl.style.transform = overshoot > 0 ? `translateY(${-overshoot}px)` : "";
       }
     };
@@ -173,15 +169,14 @@ function Projects() {
 }
 
 function ProjectCard({ project, index, total }) {
-  // Same sticky top for every card so they release in lockstep; the visual
-  // stagger comes from the transform (which doesn't affect sticky math).
+  // Same sticky top + same height for every card — they fully overlap as you scroll,
+  // each one sliding up to cover the previous.
   return (
     <article
       className="proj-card"
       id={"proj-" + project.id}
       style={{
         top: STACK_BASE + "px",
-        transform: `translateY(${index * STACK_OFFSET}px)`,
         zIndex: index + 1,
         "--accent": project.accent,
       }}

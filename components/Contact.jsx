@@ -15,7 +15,7 @@ function Contact() {
           Let's <em>meet up</em>
         </h2>
         <p className="contact-lede">
-          Open to coffee chats, bouldering sessions, and more.
+          Open to coffee chats, climbing, and more.
         </p>
 
         <button className="contact-email" onClick={copy}>
@@ -43,7 +43,7 @@ function Contact() {
 
         <footer className="site-foot">
           <div>© William Xia · {new Date().getFullYear()}</div>
-          <div className="mono">Last Updated April 2026 · ver 2.0</div>
+          <div className="mono">Last Updated May 2026 · ver 2.0</div>
         </footer>
       </div>
     </section>
