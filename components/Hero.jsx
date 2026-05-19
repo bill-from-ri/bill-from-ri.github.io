@@ -7,7 +7,7 @@ function Hero() {
     "BioNLP Researcher",
     "Game Designer",
     "Rock Climber",
-    "Fantasy Writer",
+    "Writer",
   ];
   const [roleIdx, setRoleIdx] = useState(0);
   const [text, setText] = useState("");
