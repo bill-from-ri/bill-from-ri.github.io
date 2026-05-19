@@ -78,7 +78,7 @@ function Projects() {
       tag: "Game",
       headline: "A 2D puzzle game with slippery floors.",
       body:
-        "A single-player puzzle game I built with three classmates at Tufts. Players must navigate ten rooms with slippery floors to collect various potion ingredients. Watch out for holes!",
+        "A single-player puzzle game I built with three classmates at Tufts. Players must navigate ten rooms with slippery floors to collect various potion ingredients.",
       chips: ["Unity", "C#"],
       links: [{ label: "itch.io", href: "https://alko08.itch.io/alchemists-dungeon" }],
       visual: "alchemist",

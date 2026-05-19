@@ -30,8 +30,8 @@ function About() {
             <p>
               My work is centered around natural language processing — AI agents,
               information retrieval, source grounding, and structured data extraction. 
-              I'm specifically interested in the application of language models
-              for life science domains such as epidemiology and drug development.
+              In my spare time, I've been writing on Substack about the application of language
+              models and other computational methods to epidemiology.
             </p>
             <p>
               When I'm not working on agents, I'm usually climbing,
@@ -43,11 +43,7 @@ function About() {
         <div className="about-aside">
           <aside className="telemetry-card" aria-label="Live telemetry">
             <div className="telemetry-head">
-              <div className="telemetry-pulse" aria-hidden="true">
-                <span /><span /><span />
-              </div>
-              <div className="telemetry-title">Live Telemetry</div>
-              <div className="telemetry-status">ACTIVE</div>
+              <div className="telemetry-title">Recent Updates</div>
             </div>
             <dl className="telemetry-list">
               {telemetry.map((t, i) => (
@@ -60,9 +56,6 @@ function About() {
                 </div>
               ))}
             </dl>
-            <div className="telemetry-foot">
-              <span className="mono">last sync · just now</span>
-            </div>
           </aside>
           <div className="doc-cta">
             <a

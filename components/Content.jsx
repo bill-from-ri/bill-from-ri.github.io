@@ -57,10 +57,11 @@ function Content() {
         <span className="section-kicker">Substack</span>
       </div>
       <h2 className="section-title">
-        My public <em>journal</em>
+        Studying out <em>loud</em>
       </h2>
       <p className="section-lede">
-        Substack is where I document my self-learning journey into the life sciences.
+        I'm trying to learn more about epidemiology. I use Substack to document
+        my journey, posting articles as I go.
         {/* YouTube is where I share dev diaries and other project updates. */}
       </p>
 
