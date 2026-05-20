@@ -27,27 +27,63 @@ const formatDate = (rfc822) => {
   });
 };
 
-const res = await fetch(FEED_URL, { headers: { "user-agent": "onionLad.github.io refresh-substack" } });
-if (!res.ok) {
-  console.error(`Feed fetch failed: ${res.status} ${res.statusText}`);
+const dumpHeaders = (res) => {
+  const headers = Object.fromEntries(res.headers);
+  console.error(`Status: ${res.status} ${res.statusText}`);
+  console.error(`Headers: ${JSON.stringify(headers, null, 2)}`);
+};
+
+let res;
+try {
+  res = await fetch(FEED_URL, { headers: { "user-agent": "onionLad.github.io refresh-substack" } });
+} catch (err) {
+  console.error(`fetch threw: ${err?.name}: ${err?.message}`);
+  if (err?.cause) console.error(`cause: ${err.cause}`);
+  if (err?.stack) console.error(err.stack);
   process.exit(1);
 }
+
+if (!res.ok) {
+  console.error(`Feed fetch returned non-OK.`);
+  dumpHeaders(res);
+  try {
+    const body = await res.text();
+    console.error(`Body length: ${body.length}`);
+    console.error(`Body preview (first 1000 chars):\n${body.slice(0, 1000)}`);
+  } catch (e) {
+    console.error(`Could not read error body: ${e}`);
+  }
+  process.exit(1);
+}
+
 const xml = await res.text();
+console.log(`Fetched ${xml.length} bytes; content-type=${res.headers.get("content-type") || "(none)"}`);
+console.log(`Server header: ${res.headers.get("server") || "(none)"}; cf-ray: ${res.headers.get("cf-ray") || "(none)"}`);
 
 const items = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].map((m) => m[1]);
+console.log(`Found ${items.length} raw <item> elements`);
 
-const posts = items
-  .map((block) => ({
-    title: pickTag(block, "title"),
-    embed: pickTag(block, "link"),
-    pubDate: pickTag(block, "pubDate"),
-  }))
-  .filter((p) => p.title && p.embed && !/\/p\/coming-soon$/.test(p.embed))
+const parsed = items.map((block) => ({
+  title: pickTag(block, "title"),
+  embed: pickTag(block, "link"),
+  pubDate: pickTag(block, "pubDate"),
+}));
+
+const filtered = parsed.filter((p) => p.title && p.embed && !/\/p\/coming-soon$/.test(p.embed));
+console.log(`After filter: ${filtered.length} items (dropped ${parsed.length - filtered.length})`);
+
+const posts = filtered
   .slice(0, MAX_POSTS)
   .map((p) => ({ title: p.title, date: formatDate(p.pubDate), embed: p.embed }));
 
 if (posts.length === 0) {
   console.error("No posts parsed from feed; refusing to overwrite posts.json");
+  console.error(`Raw items: ${items.length}; parsed: ${parsed.length}; after filter: ${filtered.length}`);
+  dumpHeaders(res);
+  console.error(`Body preview (first 1000 chars):\n${xml.slice(0, 1000)}`);
+  if (parsed.length > 0) {
+    console.error(`First parsed item: ${JSON.stringify(parsed[0], null, 2)}`);
+  }
   process.exit(1);
 }
 
