@@ -1,9 +1,9 @@
 // About — bio + Live Telemetry card
 function About() {
   const telemetry = [
-    { label: "Reading", value: "Pachinko", sub: "Min Jin Lee" },
+    { label: "Reading", value: "The Secret History", sub: "Donna Tartt" },
     { label: "Bouldering", value: "V4-V5", sub: "CRG North Station" },
-    { label: "Listening", value: "Supernatural", sub: "Barns Courtney" },
+    { label: "Listening", value: "Alligator Bites Never Heal", sub: "Doechii" },
     { label: "Gaming", value: "Crusader Kings 3", sub: "Paradox Interactive" },
   ];
 
